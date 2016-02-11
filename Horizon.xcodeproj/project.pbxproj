@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E42106631C6D161B007E5DCA /* Horizon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42106581C6D161B007E5DCA /* Horizon.framework */; };
+		E42106791C6D1772007E5DCA /* HorizonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42106781C6D1772007E5DCA /* HorizonTests.swift */; };
+		E42106801C6D180E007E5DCA /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421067F1C6D180E007E5DCA /* Horizon.swift */; };
+		E48383631C6D1ADE0006334D /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E48383621C6D1ADE0006334D /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E42106641C6D161B007E5DCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E421064F1C6D161B007E5DCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E42106571C6D161B007E5DCA;
+			remoteInfo = Horizon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E42106581C6D161B007E5DCA /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E42106621C6D161B007E5DCA /* HorizonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E42106761C6D175F007E5DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E42106781C6D1772007E5DCA /* HorizonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizonTests.swift; sourceTree = "<group>"; };
+		E421067A1C6D1779007E5DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E421067F1C6D180E007E5DCA /* Horizon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Horizon.swift; sourceTree = "<group>"; };
+		E48383621C6D1ADE0006334D /* Horizon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horizon.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E42106541C6D161B007E5DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E421065F1C6D161B007E5DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E42106631C6D161B007E5DCA /* Horizon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E421064E1C6D161B007E5DCA = {
+			isa = PBXGroup;
+			children = (
+				E421065A1C6D161B007E5DCA /* Horizon */,
+				E42106661C6D161B007E5DCA /* HorizonTests */,
+				E42106591C6D161B007E5DCA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E42106591C6D161B007E5DCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E42106581C6D161B007E5DCA /* Horizon.framework */,
+				E42106621C6D161B007E5DCA /* HorizonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E421065A1C6D161B007E5DCA /* Horizon */ = {
+			isa = PBXGroup;
+			children = (
+				E42106731C6D16C0007E5DCA /* Source */,
+				E42106721C6D16BB007E5DCA /* Resources */,
+			);
+			path = Horizon;
+			sourceTree = "<group>";
+		};
+		E42106661C6D161B007E5DCA /* HorizonTests */ = {
+			isa = PBXGroup;
+			children = (
+				E42106751C6D1743007E5DCA /* Source */,
+				E42106741C6D173C007E5DCA /* Resources */,
+			);
+			path = HorizonTests;
+			sourceTree = "<group>";
+		};
+		E42106721C6D16BB007E5DCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E421067A1C6D1779007E5DCA /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E42106731C6D16C0007E5DCA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E421067F1C6D180E007E5DCA /* Horizon.swift */,
+				E48383621C6D1ADE0006334D /* Horizon.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E42106741C6D173C007E5DCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E42106761C6D175F007E5DCA /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E42106751C6D1743007E5DCA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E42106781C6D1772007E5DCA /* HorizonTests.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E42106551C6D161B007E5DCA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48383631C6D1ADE0006334D /* Horizon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E42106571C6D161B007E5DCA /* Horizon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E421066C1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "Horizon" */;
+			buildPhases = (
+				E42106531C6D161B007E5DCA /* Sources */,
+				E42106541C6D161B007E5DCA /* Frameworks */,
+				E421067E1C6D17EF007E5DCA /* SwiftLint */,
+				E42106551C6D161B007E5DCA /* Headers */,
+				E42106561C6D161B007E5DCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Horizon;
+			productName = Horizon;
+			productReference = E42106581C6D161B007E5DCA /* Horizon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E42106611C6D161B007E5DCA /* HorizonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E421066F1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "HorizonTests" */;
+			buildPhases = (
+				E421065E1C6D161B007E5DCA /* Sources */,
+				E421065F1C6D161B007E5DCA /* Frameworks */,
+				E42106601C6D161B007E5DCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E42106651C6D161B007E5DCA /* PBXTargetDependency */,
+			);
+			name = HorizonTests;
+			productName = HorizonTests;
+			productReference = E42106621C6D161B007E5DCA /* HorizonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E421064F1C6D161B007E5DCA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = pisarm.dk;
+				TargetAttributes = {
+					E42106571C6D161B007E5DCA = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					E42106611C6D161B007E5DCA = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = E42106521C6D161B007E5DCA /* Build configuration list for PBXProject "Horizon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E421064E1C6D161B007E5DCA;
+			productRefGroup = E42106591C6D161B007E5DCA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E42106571C6D161B007E5DCA /* Horizon */,
+				E42106611C6D161B007E5DCA /* HorizonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E42106561C6D161B007E5DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E42106601C6D161B007E5DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E421067E1C6D17EF007E5DCA /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E42106531C6D161B007E5DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E42106801C6D180E007E5DCA /* Horizon.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E421065E1C6D161B007E5DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E42106791C6D1772007E5DCA /* HorizonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E42106651C6D161B007E5DCA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E42106571C6D161B007E5DCA /* Horizon */;
+			targetProxy = E42106641C6D161B007E5DCA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E421066A1C6D161B007E5DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E421066B1C6D161B007E5DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E421066D1C6D161B007E5DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Horizon/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E421066E1C6D161B007E5DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Horizon/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E42106701C6D161B007E5DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = HorizonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.HorizonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E42106711C6D161B007E5DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = HorizonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.HorizonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E42106521C6D161B007E5DCA /* Build configuration list for PBXProject "Horizon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E421066A1C6D161B007E5DCA /* Debug */,
+				E421066B1C6D161B007E5DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E421066C1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "Horizon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E421066D1C6D161B007E5DCA /* Debug */,
+				E421066E1C6D161B007E5DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E421066F1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "HorizonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E42106701C6D161B007E5DCA /* Debug */,
+				E42106711C6D161B007E5DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E421064F1C6D161B007E5DCA /* Project object */;
+}
