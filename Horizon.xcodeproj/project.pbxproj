@@ -10,7 +10,13 @@
 		E42106631C6D161B007E5DCA /* Horizon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42106581C6D161B007E5DCA /* Horizon.framework */; };
 		E42106791C6D1772007E5DCA /* HorizonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42106781C6D1772007E5DCA /* HorizonTests.swift */; };
 		E42106801C6D180E007E5DCA /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421067F1C6D180E007E5DCA /* Horizon.swift */; };
+		E47FD64F1C6E8464001BCC34 /* PurgingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47FD64E1C6E8464001BCC34 /* PurgingArray.swift */; };
 		E48383631C6D1ADE0006334D /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E48383621C6D1ADE0006334D /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4B292F51C6EA4E400DD65BA /* PurgingArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292F41C6EA4E400DD65BA /* PurgingArrayTests.swift */; };
+		E4B292F71C6F60D600DD65BA /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292F61C6F60D600DD65BA /* URLSessionProtocol.swift */; };
+		E4B292FA1C6FD76100DD65BA /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292F91C6FD76100DD65BA /* MockURLSession.swift */; };
+		E4B292FC1C6FE0B200DD65BA /* URLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */; };
+		E4B293001C6FFF1900DD65BA /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +36,13 @@
 		E42106781C6D1772007E5DCA /* HorizonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizonTests.swift; sourceTree = "<group>"; };
 		E421067A1C6D1779007E5DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E421067F1C6D180E007E5DCA /* Horizon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Horizon.swift; sourceTree = "<group>"; };
+		E47FD64E1C6E8464001BCC34 /* PurgingArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurgingArray.swift; sourceTree = "<group>"; };
 		E48383621C6D1ADE0006334D /* Horizon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horizon.h; sourceTree = "<group>"; };
+		E4B292F41C6EA4E400DD65BA /* PurgingArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurgingArrayTests.swift; sourceTree = "<group>"; };
+		E4B292F61C6F60D600DD65BA /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		E4B292F91C6FD76100DD65BA /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockURLSession.swift; path = HorizonTests/Source/Mock/MockURLSession.swift; sourceTree = SOURCE_ROOT; };
+		E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
+		E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +85,8 @@
 		E421065A1C6D161B007E5DCA /* Horizon */ = {
 			isa = PBXGroup;
 			children = (
-				E42106731C6D16C0007E5DCA /* Source */,
 				E42106721C6D16BB007E5DCA /* Resources */,
+				E42106731C6D16C0007E5DCA /* Source */,
 			);
 			path = Horizon;
 			sourceTree = "<group>";
@@ -82,8 +94,8 @@
 		E42106661C6D161B007E5DCA /* HorizonTests */ = {
 			isa = PBXGroup;
 			children = (
-				E42106751C6D1743007E5DCA /* Source */,
 				E42106741C6D173C007E5DCA /* Resources */,
+				E42106751C6D1743007E5DCA /* Source */,
 			);
 			path = HorizonTests;
 			sourceTree = "<group>";
@@ -99,8 +111,11 @@
 		E42106731C6D16C0007E5DCA /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				E421067F1C6D180E007E5DCA /* Horizon.swift */,
 				E48383621C6D1ADE0006334D /* Horizon.h */,
+				E421067F1C6D180E007E5DCA /* Horizon.swift */,
+				E47FD64E1C6E8464001BCC34 /* PurgingArray.swift */,
+				E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */,
+				E4B292F61C6F60D600DD65BA /* URLSessionProtocol.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -117,8 +132,19 @@
 			isa = PBXGroup;
 			children = (
 				E42106781C6D1772007E5DCA /* HorizonTests.swift */,
+				E4B292F81C6FD70F00DD65BA /* Mock */,
+				E4B292F41C6EA4E400DD65BA /* PurgingArrayTests.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		E4B292F81C6FD70F00DD65BA /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */,
+				E4B292F91C6FD76100DD65BA /* MockURLSession.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42106801C6D180E007E5DCA /* Horizon.swift in Sources */,
+				E47FD64F1C6E8464001BCC34 /* PurgingArray.swift in Sources */,
+				E4B292FC1C6FE0B200DD65BA /* URLSessionDataTask.swift in Sources */,
+				E4B292F71C6F60D600DD65BA /* URLSessionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42106791C6D1772007E5DCA /* HorizonTests.swift in Sources */,
+				E4B293001C6FFF1900DD65BA /* MockURLSessionDataTask.swift in Sources */,
+				E4B292FA1C6FD76100DD65BA /* MockURLSession.swift in Sources */,
+				E4B292F51C6EA4E400DD65BA /* PurgingArrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = HorizonTests/Info.plist;
+				INFOPLIST_FILE = HorizonTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.HorizonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,7 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = HorizonTests/Info.plist;
+				INFOPLIST_FILE = HorizonTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.HorizonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
