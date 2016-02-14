@@ -26,52 +26,103 @@ class HorizonTests: XCTestCase {
     }
 
     func testAddHost() {
-        horizon.add("pisarm.io", action: { _ in })
-        XCTAssertEqual(1, horizon.hosts.count)
+        let pisarmDotIo: Endpoint! = Endpoint(urlString: "pisarm.io")
+        horizon.add(pisarmDotIo)
+        XCTAssertEqual(1, horizon.endpoints.count)
     }
 
     func testRemoveHost() {
-        horizon.add("pisarm.io", action: { _ in })
-        horizon.add("pisarm.xxx", action: { _ in })
-        horizon.remove("pisarm.xxx")
-        XCTAssertEqual(1, horizon.hosts.count)
+        let pisarmDotIo: Endpoint! = Endpoint(urlString: "pisarm.io")
+        let pisarmDotGeneral: Endpoint! = Endpoint(urlString: "pisarm.general")
+
+        horizon.add(pisarmDotIo)
+        horizon.add(pisarmDotGeneral)
+        horizon.remove(pisarmDotGeneral)
+        XCTAssertEqual(1, horizon.endpoints.count)
     }
 
-    func testHostReachable() {
-        let expectation = expectationWithDescription("Host should be reachable with a given response code")
-        let hostResponseCode = 200
-        let hostURL = "http://pisarm.io"
+    func testSingleEndpointReachable() {
+        let expectation = expectationWithDescription("Single endpoint should be reachable")
 
-        session.nextData = "{}".dataUsingEncoding(NSUTF8StringEncoding)
-        session.nextResponse = NSHTTPURLResponse(statusCode: hostResponseCode)
+        let urlString = "http://pisarm.io"
 
-        horizon.add(hostURL) { host in
-            print("\(host.responseTime) \(host.meanResponseTime)")
-            XCTAssertEqual(hostURL, host.url.absoluteString)
-            XCTAssertEqual(hostResponseCode, host.responseCode)
-            XCTAssertTrue(host.isReachable)
-
+        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _ in
+            XCTAssertEqual(Reachability.Full, self.horizon.reachability)
             expectation.fulfill()
         }
-        horizon.start()
+
+        horizon.add(endpoint)
+        horizon.startMonitoring()
 
         waitForExpectationsWithTimeout(1, handler: nil)
     }
 
-    func testHostUnreachable() {
-        let expectation = expectationWithDescription("Host should be unreachable")
-        let hostURL = "http://pisarm.io"
+    func testSingleEndPointUnreachable() {
+        let expectation = expectationWithDescription("Single endpoint should be unreachable")
 
-        session.nextError = NSError(domain: "", code: 7, userInfo: nil)
+        let urlString = "http://pisarm.io"
 
-        horizon.add(hostURL) { host in
-            XCTAssertEqual(hostURL, host.url.absoluteString)
-            XCTAssertFalse(host.isReachable)
-
+        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _ in
+            XCTAssertEqual(Reachability.None, self.horizon.reachability)
             expectation.fulfill()
         }
-        horizon.start()
+
+        session.nextError = NSError(domain: "", code: 7, userInfo: nil)  //TODO: This can be done smarter
+
+        horizon.add(endpoint)
+        horizon.startMonitoring()
 
         waitForExpectationsWithTimeout(1, handler: nil)
     }
+
+    func testMultipleEndpointsReachable() {
+        XCTFail()
+    }
+
+    func testMultipleEndPointsPartiallyReachable() {
+        XCTFail()
+    }
+
+    func testMultipleEndpointsUnreachable() {
+        XCTFail()
+    }
+
+
+    //    func testHostReachable() {
+    //        let expectation = expectationWithDescription("Host should be reachable with a given response code")
+    //        let hostResponseCode = 200
+    //        let hostURL = "http://pisarm.io"
+    //
+    //        session.nextData = "{}".dataUsingEncoding(NSUTF8StringEncoding)
+    //        session.nextResponse = NSHTTPURLResponse(statusCode: hostResponseCode)
+    //
+    //        horizon.add(hostURL) { host in
+    //            print("\(host.responseTime) \(host.meanResponseTime)")
+    //            XCTAssertEqual(hostURL, host.url.absoluteString)
+    //            XCTAssertEqual(hostResponseCode, host.responseCode)
+    //            XCTAssertTrue(host.isReachable)
+    //
+    //            expectation.fulfill()
+    //        }
+    //        horizon.start()
+    //
+    //        waitForExpectationsWithTimeout(1, handler: nil)
+    //    }
+    //
+    //    func testHostUnreachable() {
+    //        let expectation = expectationWithDescription("Host should be unreachable")
+    //        let hostURL = "http://pisarm.io"
+    //
+    //        session.nextError = NSError(domain: "", code: 7, userInfo: nil)
+    //
+    //        horizon.add(hostURL) { host in
+    //            XCTAssertEqual(hostURL, host.url.absoluteString)
+    //            XCTAssertFalse(host.isReachable)
+    //
+    //            expectation.fulfill()
+    //        }
+    //        horizon.start()
+    //
+    //        waitForExpectationsWithTimeout(1, handler: nil)
+    //    }
 }

@@ -8,63 +8,86 @@
 
 import Foundation
 
-public class Host {
-    var isReachable: Bool = false
-    var responseCode: Int = 0
-    var responseTime: NSTimeInterval {
-        return responseTimes.last ?? 0
-    }
-    var meanResponseTime: NSTimeInterval {
-        return responseTimes.reduce(0.0, combine: +) / Double(responseTimes.count)
-    }
-
-    var responseTimes: PurgingArray<NSTimeInterval> = PurgingArray()
-    var url: NSURL
-    let action: (host: Host) -> ()
-
-    init(urlString: String, action: (host: Host) -> ()) {
-        self.url = NSURL(string: urlString)!
-        self.action = action
-    }
+public enum Reachability {
+    case Full
+    case Partial
+    case None
 }
 
 public final class Horizon {
-    //MARK:
-    public private(set) var hosts: [Host] = []
+    //MARK: Properties
+    public var monitorInterval: NSTimeInterval = 5.0
+    private(set) var isRunning: Bool = false
+    private(set) var endpoints: [Endpoint] = []
     private let urlSession: URLSessionProtocol
 
+    //MARK: Initialization
     public init(urlSession: URLSessionProtocol = Horizon.defaultSession()) {
         self.urlSession = urlSession
     }
+}
 
-    public func add(urlString: String, action: (host: Host) -> ()) {
-        let host = Host(urlString: urlString, action: action)
-        hosts.append(host)
+extension Horizon {
+    //MARK:
+    public func add(endpoint: Endpoint) {
+        endpoints.append(endpoint)
     }
 
-    public func remove(urlString: String) {
-        hosts = hosts.filter { $0.url.absoluteString != urlString }
+    public func remove(endpoint: Endpoint) {
+        endpoints = endpoints.filter { $0.url.absoluteString != endpoint.url.absoluteString }
+    }
+}
+
+extension Horizon {
+    //MARK:
+    public func startMonitoring() {
+        isRunning = true
+        checkEndpoints()
     }
 
-    public func start() {
+    public func stopMonitoring() {
+        isRunning = false
+    }
+}
+
+extension Horizon {
+    //MARK:
+    var reachability: Reachability {
+        let reachableEndPointCount = endpoints
+            .map { return $0.isReachable ? 1 : 0 }
+            .reduce(0, combine: +)
+
+        if reachableEndPointCount == endpoints.count {
+            return .Full
+        } else if reachableEndPointCount == 0 {
+            return .None
+        } else {
+            return .Partial
+        }
+    }
+}
+
+extension Horizon {
+    //MARK:
+    func checkEndpoints() {
         let dispatchGroup = dispatch_group_create()
 
-        hosts.forEach { host in
+        endpoints.forEach { endpoint in
             dispatch_group_enter(dispatchGroup)
 
             let beginTime = NSDate.timeIntervalSinceReferenceDate()
 
-            urlSession.dataTaskWithURL(host.url) { data, response, error in
+            urlSession.dataTaskWithURL(endpoint.url) { _, response, error in
                 if error != nil {
-                    host.isReachable = false
-                    host.action(host: host)
+                    endpoint.isReachable = false
+                    endpoint.changeAction?(endpoint: endpoint)
                 } else {
                     if let httpURLResponse = response as? NSHTTPURLResponse {
-                        host.responseCode = httpURLResponse.statusCode
+                        endpoint.responseCode = httpURLResponse.statusCode
                     }
-                    host.isReachable = true
-                    host.responseTimes.append(NSDate.timeIntervalSinceReferenceDate() - beginTime)
-                    host.action(host: host)
+                    endpoint.isReachable = true
+                    endpoint.responseTimes.append(NSDate.timeIntervalSinceReferenceDate() - beginTime)
+                    endpoint.changeAction?(endpoint: endpoint)
                 }
 
                 dispatch_group_leave(dispatchGroup)
@@ -72,21 +95,23 @@ public final class Horizon {
                 }.resume()
         }
 
-        dispatch_group_wait(dispatchGroup, DISPATCH_TIME_FOREVER)
-
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) { [unowned self] in
-            self.start()
+        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue()) { [unowned self] in
+            if self.isRunning {
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self.monitorInterval * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) { [unowned self] in
+                    self.checkEndpoints()
+                }
+            }
         }
     }
 }
 
-private extension Horizon {
-    private static func defaultSession() -> NSURLSession {
+extension Horizon {
+    //MARK:
+    private static func defaultSession(requestTimeout: NSTimeInterval = 3.0, resourceTimeout: NSTimeInterval = 3.0) -> NSURLSession {
         let urlSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        urlSessionConfiguration.timeoutIntervalForRequest = 1.0
-        urlSessionConfiguration.timeoutIntervalForResource = 1.0
-
+        urlSessionConfiguration.timeoutIntervalForRequest = requestTimeout
+        urlSessionConfiguration.timeoutIntervalForResource = resourceTimeout
         return NSURLSession(configuration: urlSessionConfiguration)
     }
 }

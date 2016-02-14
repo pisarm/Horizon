@@ -17,6 +17,8 @@
 		E4B292FA1C6FD76100DD65BA /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292F91C6FD76100DD65BA /* MockURLSession.swift */; };
 		E4B292FC1C6FE0B200DD65BA /* URLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */; };
 		E4B293001C6FFF1900DD65BA /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */; };
+		E4B293071C711FBB00DD65BA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B293061C711FBB00DD65BA /* Endpoint.swift */; };
+		E4B2930B1C71355600DD65BA /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2930A1C71355600DD65BA /* EndpointTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		E4B292F91C6FD76100DD65BA /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockURLSession.swift; path = HorizonTests/Source/Mock/MockURLSession.swift; sourceTree = SOURCE_ROOT; };
 		E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
 		E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		E4B293061C711FBB00DD65BA /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		E4B2930A1C71355600DD65BA /* EndpointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 			children = (
 				E48383621C6D1ADE0006334D /* Horizon.h */,
 				E421067F1C6D180E007E5DCA /* Horizon.swift */,
+				E4B293031C711F4200DD65BA /* Model */,
 				E47FD64E1C6E8464001BCC34 /* PurgingArray.swift */,
 				E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */,
 				E4B292F61C6F60D600DD65BA /* URLSessionProtocol.swift */,
@@ -133,6 +138,7 @@
 			children = (
 				E42106781C6D1772007E5DCA /* HorizonTests.swift */,
 				E4B292F81C6FD70F00DD65BA /* Mock */,
+				E4B293091C71354200DD65BA /* Model */,
 				E4B292F41C6EA4E400DD65BA /* PurgingArrayTests.swift */,
 			);
 			path = Source;
@@ -141,10 +147,26 @@
 		E4B292F81C6FD70F00DD65BA /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */,
 				E4B292F91C6FD76100DD65BA /* MockURLSession.swift */,
+				E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		E4B293031C711F4200DD65BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4B293061C711FBB00DD65BA /* Endpoint.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E4B293091C71354200DD65BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4B2930A1C71355600DD65BA /* EndpointTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B293071C711FBB00DD65BA /* Endpoint.swift in Sources */,
 				E42106801C6D180E007E5DCA /* Horizon.swift in Sources */,
 				E47FD64F1C6E8464001BCC34 /* PurgingArray.swift in Sources */,
 				E4B292FC1C6FE0B200DD65BA /* URLSessionDataTask.swift in Sources */,
@@ -284,9 +307,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B2930B1C71355600DD65BA /* EndpointTests.swift in Sources */,
 				E42106791C6D1772007E5DCA /* HorizonTests.swift in Sources */,
-				E4B293001C6FFF1900DD65BA /* MockURLSessionDataTask.swift in Sources */,
 				E4B292FA1C6FD76100DD65BA /* MockURLSession.swift in Sources */,
+				E4B293001C6FFF1900DD65BA /* MockURLSessionDataTask.swift in Sources */,
 				E4B292F51C6EA4E400DD65BA /* PurgingArrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
