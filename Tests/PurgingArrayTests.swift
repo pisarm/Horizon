@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 @testable import Horizon
 
-class PurgingArrayTests: XCTestCase {
+final class PurgingArrayTests: XCTestCase {
     var purgingArray: PurgingArray<Int>!
 
     override func setUp() {

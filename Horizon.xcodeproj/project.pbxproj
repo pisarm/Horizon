@@ -8,17 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		E42106631C6D161B007E5DCA /* Horizon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42106581C6D161B007E5DCA /* Horizon.framework */; };
-		E42106791C6D1772007E5DCA /* HorizonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42106781C6D1772007E5DCA /* HorizonTests.swift */; };
-		E42106801C6D180E007E5DCA /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421067F1C6D180E007E5DCA /* Horizon.swift */; };
-		E47FD64F1C6E8464001BCC34 /* PurgingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47FD64E1C6E8464001BCC34 /* PurgingArray.swift */; };
-		E48383631C6D1ADE0006334D /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E48383621C6D1ADE0006334D /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4B292F51C6EA4E400DD65BA /* PurgingArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292F41C6EA4E400DD65BA /* PurgingArrayTests.swift */; };
-		E4B292F71C6F60D600DD65BA /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292F61C6F60D600DD65BA /* URLSessionProtocol.swift */; };
-		E4B292FA1C6FD76100DD65BA /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292F91C6FD76100DD65BA /* MockURLSession.swift */; };
-		E4B292FC1C6FE0B200DD65BA /* URLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */; };
-		E4B293001C6FFF1900DD65BA /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */; };
-		E4B293071C711FBB00DD65BA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B293061C711FBB00DD65BA /* Endpoint.swift */; };
-		E4B2930B1C71355600DD65BA /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2930A1C71355600DD65BA /* EndpointTests.swift */; };
+		E439BE2A1C73DBD7006EED45 /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E439BE261C73DBD7006EED45 /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E439BE2B1C73DBD7006EED45 /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE271C73DBD7006EED45 /* Horizon.swift */; };
+		E439BE321C73DC2C006EED45 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE301C73DC2C006EED45 /* Authorization.swift */; };
+		E439BE331C73DC2C006EED45 /* PurgingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE311C73DC2C006EED45 /* PurgingArray.swift */; };
+		E439BE361C73DC41006EED45 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE341C73DC41006EED45 /* URLSessionDataTaskProtocol.swift */; };
+		E439BE371C73DC41006EED45 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE351C73DC41006EED45 /* URLSessionProtocol.swift */; };
+		E439BE391C73DC48006EED45 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE381C73DC48006EED45 /* Endpoint.swift */; };
+		E439BE4C1C73DDC6006EED45 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE351C73DC41006EED45 /* URLSessionProtocol.swift */; };
+		E439BE4E1C73DDC6006EED45 /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE271C73DBD7006EED45 /* Horizon.swift */; };
+		E439BE501C73DDC6006EED45 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE301C73DC2C006EED45 /* Authorization.swift */; };
+		E439BE511C73DDC6006EED45 /* PurgingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE311C73DC2C006EED45 /* PurgingArray.swift */; };
+		E439BE541C73DDC6006EED45 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE381C73DC48006EED45 /* Endpoint.swift */; };
+		E439BE561C73DDC6006EED45 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE341C73DC41006EED45 /* URLSessionDataTaskProtocol.swift */; };
+		E439BE5A1C73DDC6006EED45 /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E439BE261C73DBD7006EED45 /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E439BE641C73DEE8006EED45 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE351C73DC41006EED45 /* URLSessionProtocol.swift */; };
+		E439BE661C73DEE8006EED45 /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE271C73DBD7006EED45 /* Horizon.swift */; };
+		E439BE681C73DEE8006EED45 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE301C73DC2C006EED45 /* Authorization.swift */; };
+		E439BE691C73DEE8006EED45 /* PurgingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE311C73DC2C006EED45 /* PurgingArray.swift */; };
+		E439BE6C1C73DEE8006EED45 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE381C73DC48006EED45 /* Endpoint.swift */; };
+		E439BE6E1C73DEE8006EED45 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE341C73DC41006EED45 /* URLSessionDataTaskProtocol.swift */; };
+		E439BE721C73DEE8006EED45 /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E439BE261C73DBD7006EED45 /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E439BE7C1C73DF38006EED45 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE351C73DC41006EED45 /* URLSessionProtocol.swift */; };
+		E439BE7E1C73DF38006EED45 /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE271C73DBD7006EED45 /* Horizon.swift */; };
+		E439BE801C73DF38006EED45 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE301C73DC2C006EED45 /* Authorization.swift */; };
+		E439BE811C73DF38006EED45 /* PurgingArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE311C73DC2C006EED45 /* PurgingArray.swift */; };
+		E439BE841C73DF38006EED45 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE381C73DC48006EED45 /* Endpoint.swift */; };
+		E439BE861C73DF38006EED45 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE341C73DC41006EED45 /* URLSessionDataTaskProtocol.swift */; };
+		E439BE8A1C73DF38006EED45 /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E439BE261C73DBD7006EED45 /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E439BE931C73E38A006EED45 /* AuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE411C73DD5D006EED45 /* AuthorizationTests.swift */; };
+		E439BE941C73E395006EED45 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE421C73DD5D006EED45 /* EndpointTests.swift */; };
+		E439BE951C73E395006EED45 /* HorizonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE431C73DD5D006EED45 /* HorizonTests.swift */; };
+		E439BE961C73E395006EED45 /* PurgingArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE441C73DD5D006EED45 /* PurgingArrayTests.swift */; };
+		E439BE971C73E3A0006EED45 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE3D1C73DD51006EED45 /* MockURLSession.swift */; };
+		E439BE981C73E3A0006EED45 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE3E1C73DD51006EED45 /* MockURLSessionDataTask.swift */; };
+		E4B8A7601C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
+		E4B8A7611C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
+		E4B8A7621C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
+		E4B8A7631C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +61,25 @@
 /* Begin PBXFileReference section */
 		E42106581C6D161B007E5DCA /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42106621C6D161B007E5DCA /* HorizonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E42106761C6D175F007E5DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E42106781C6D1772007E5DCA /* HorizonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizonTests.swift; sourceTree = "<group>"; };
-		E421067A1C6D1779007E5DCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E421067F1C6D180E007E5DCA /* Horizon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Horizon.swift; sourceTree = "<group>"; };
-		E47FD64E1C6E8464001BCC34 /* PurgingArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurgingArray.swift; sourceTree = "<group>"; };
-		E48383621C6D1ADE0006334D /* Horizon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horizon.h; sourceTree = "<group>"; };
-		E4B292F41C6EA4E400DD65BA /* PurgingArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurgingArrayTests.swift; sourceTree = "<group>"; };
-		E4B292F61C6F60D600DD65BA /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
-		E4B292F91C6FD76100DD65BA /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockURLSession.swift; path = HorizonTests/Source/Mock/MockURLSession.swift; sourceTree = SOURCE_ROOT; };
-		E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
-		E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
-		E4B293061C711FBB00DD65BA /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		E4B2930A1C71355600DD65BA /* EndpointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		E439BE221C73DB81006EED45 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		E439BE261C73DBD7006EED45 /* Horizon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horizon.h; sourceTree = "<group>"; };
+		E439BE271C73DBD7006EED45 /* Horizon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Horizon.swift; sourceTree = "<group>"; };
+		E439BE301C73DC2C006EED45 /* Authorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		E439BE311C73DC2C006EED45 /* PurgingArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurgingArray.swift; sourceTree = "<group>"; };
+		E439BE341C73DC41006EED45 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		E439BE351C73DC41006EED45 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		E439BE381C73DC48006EED45 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		E439BE3D1C73DD51006EED45 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		E439BE3E1C73DD51006EED45 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		E439BE411C73DD5D006EED45 /* AuthorizationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationTests.swift; sourceTree = "<group>"; };
+		E439BE421C73DD5D006EED45 /* EndpointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		E439BE431C73DD5D006EED45 /* HorizonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizonTests.swift; sourceTree = "<group>"; };
+		E439BE441C73DD5D006EED45 /* PurgingArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurgingArrayTests.swift; sourceTree = "<group>"; };
+		E439BE5F1C73DDC6006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E439BE771C73DEE8006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E439BE8F1C73DF38006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E439BE911C73DF88006EED45 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,15 +98,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E439BE571C73DDC6006EED45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE6F1C73DEE8006EED45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE871C73DF38006EED45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E421064E1C6D161B007E5DCA = {
 			isa = PBXGroup;
 			children = (
-				E421065A1C6D161B007E5DCA /* Horizon */,
-				E42106661C6D161B007E5DCA /* HorizonTests */,
 				E42106591C6D161B007E5DCA /* Products */,
+				E439BE1E1C73DAD2006EED45 /* Sources */,
+				E439BE201C73DAF0006EED45 /* Support */,
+				E439BE1F1C73DAD9006EED45 /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,92 +136,81 @@
 			isa = PBXGroup;
 			children = (
 				E42106581C6D161B007E5DCA /* Horizon.framework */,
+				E439BE8F1C73DF38006EED45 /* Horizon.framework */,
+				E439BE5F1C73DDC6006EED45 /* Horizon.framework */,
+				E439BE771C73DEE8006EED45 /* Horizon.framework */,
 				E42106621C6D161B007E5DCA /* HorizonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E421065A1C6D161B007E5DCA /* Horizon */ = {
+		E439BE1E1C73DAD2006EED45 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				E42106721C6D16BB007E5DCA /* Resources */,
-				E42106731C6D16C0007E5DCA /* Source */,
+				E439BE2F1C73DC04006EED45 /* Helpers */,
+				E439BE261C73DBD7006EED45 /* Horizon.h */,
+				E439BE271C73DBD7006EED45 /* Horizon.swift */,
+				E439BE2D1C73DBDB006EED45 /* Model */,
+				E439BE2E1C73DBFA006EED45 /* Protocols */,
 			);
-			path = Horizon;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		E42106661C6D161B007E5DCA /* HorizonTests */ = {
+		E439BE1F1C73DAD9006EED45 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E42106741C6D173C007E5DCA /* Resources */,
-				E42106751C6D1743007E5DCA /* Source */,
+				E439BE411C73DD5D006EED45 /* AuthorizationTests.swift */,
+				E439BE421C73DD5D006EED45 /* EndpointTests.swift */,
+				E439BE431C73DD5D006EED45 /* HorizonTests.swift */,
+				E439BE3A1C73DC87006EED45 /* Mock */,
+				E439BE441C73DD5D006EED45 /* PurgingArrayTests.swift */,
 			);
-			path = HorizonTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		E42106721C6D16BB007E5DCA /* Resources */ = {
+		E439BE201C73DAF0006EED45 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				E421067A1C6D1779007E5DCA /* Info.plist */,
+				E439BE911C73DF88006EED45 /* Info.plist */,
+				E439BE221C73DB81006EED45 /* Tests-Info.plist */,
 			);
-			path = Resources;
+			path = Support;
 			sourceTree = "<group>";
 		};
-		E42106731C6D16C0007E5DCA /* Source */ = {
+		E439BE2D1C73DBDB006EED45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E48383621C6D1ADE0006334D /* Horizon.h */,
-				E421067F1C6D180E007E5DCA /* Horizon.swift */,
-				E4B293031C711F4200DD65BA /* Model */,
-				E47FD64E1C6E8464001BCC34 /* PurgingArray.swift */,
-				E4B292FB1C6FE0B200DD65BA /* URLSessionDataTask.swift */,
-				E4B292F61C6F60D600DD65BA /* URLSessionProtocol.swift */,
+				E439BE381C73DC48006EED45 /* Endpoint.swift */,
 			);
-			path = Source;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		E42106741C6D173C007E5DCA /* Resources */ = {
+		E439BE2E1C73DBFA006EED45 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E42106761C6D175F007E5DCA /* Info.plist */,
+				E439BE341C73DC41006EED45 /* URLSessionDataTaskProtocol.swift */,
+				E439BE351C73DC41006EED45 /* URLSessionProtocol.swift */,
+				E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */,
 			);
-			path = Resources;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
-		E42106751C6D1743007E5DCA /* Source */ = {
+		E439BE2F1C73DC04006EED45 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E42106781C6D1772007E5DCA /* HorizonTests.swift */,
-				E4B292F81C6FD70F00DD65BA /* Mock */,
-				E4B293091C71354200DD65BA /* Model */,
-				E4B292F41C6EA4E400DD65BA /* PurgingArrayTests.swift */,
+				E439BE301C73DC2C006EED45 /* Authorization.swift */,
+				E439BE311C73DC2C006EED45 /* PurgingArray.swift */,
 			);
-			path = Source;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
-		E4B292F81C6FD70F00DD65BA /* Mock */ = {
+		E439BE3A1C73DC87006EED45 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				E4B292F91C6FD76100DD65BA /* MockURLSession.swift */,
-				E4B292FF1C6FFF1900DD65BA /* MockURLSessionDataTask.swift */,
+				E439BE3D1C73DD51006EED45 /* MockURLSession.swift */,
+				E439BE3E1C73DD51006EED45 /* MockURLSessionDataTask.swift */,
 			);
 			path = Mock;
-			sourceTree = "<group>";
-		};
-		E4B293031C711F4200DD65BA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E4B293061C711FBB00DD65BA /* Endpoint.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E4B293091C71354200DD65BA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E4B2930A1C71355600DD65BA /* EndpointTests.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,16 +220,40 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E48383631C6D1ADE0006334D /* Horizon.h in Headers */,
+				E439BE2A1C73DBD7006EED45 /* Horizon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE591C73DDC6006EED45 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E439BE5A1C73DDC6006EED45 /* Horizon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE711C73DEE8006EED45 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E439BE721C73DEE8006EED45 /* Horizon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE891C73DF38006EED45 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E439BE8A1C73DF38006EED45 /* Horizon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E42106571C6D161B007E5DCA /* Horizon */ = {
+		E42106571C6D161B007E5DCA /* Horizon(iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E421066C1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "Horizon" */;
+			buildConfigurationList = E421066C1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "Horizon(iOS)" */;
 			buildPhases = (
 				E42106531C6D161B007E5DCA /* Sources */,
 				E42106541C6D161B007E5DCA /* Frameworks */,
@@ -197,7 +265,7 @@
 			);
 			dependencies = (
 			);
-			name = Horizon;
+			name = "Horizon(iOS)";
 			productName = Horizon;
 			productReference = E42106581C6D161B007E5DCA /* Horizon.framework */;
 			productType = "com.apple.product-type.framework";
@@ -219,6 +287,63 @@
 			productName = HorizonTests;
 			productReference = E42106621C6D161B007E5DCA /* HorizonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E439BE491C73DDC6006EED45 /* Horizon(watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E439BE5C1C73DDC6006EED45 /* Build configuration list for PBXNativeTarget "Horizon(watchOS)" */;
+			buildPhases = (
+				E439BE4A1C73DDC6006EED45 /* Sources */,
+				E439BE571C73DDC6006EED45 /* Frameworks */,
+				E439BE581C73DDC6006EED45 /* SwiftLint */,
+				E439BE591C73DDC6006EED45 /* Headers */,
+				E439BE5B1C73DDC6006EED45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Horizon(watchOS)";
+			productName = Horizon;
+			productReference = E439BE5F1C73DDC6006EED45 /* Horizon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E439BE611C73DEE8006EED45 /* Horizon(macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E439BE741C73DEE8006EED45 /* Build configuration list for PBXNativeTarget "Horizon(macOS)" */;
+			buildPhases = (
+				E439BE621C73DEE8006EED45 /* Sources */,
+				E439BE6F1C73DEE8006EED45 /* Frameworks */,
+				E439BE701C73DEE8006EED45 /* SwiftLint */,
+				E439BE711C73DEE8006EED45 /* Headers */,
+				E439BE731C73DEE8006EED45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Horizon(macOS)";
+			productName = Horizon;
+			productReference = E439BE771C73DEE8006EED45 /* Horizon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E439BE791C73DF38006EED45 /* Horizon(tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E439BE8C1C73DF38006EED45 /* Build configuration list for PBXNativeTarget "Horizon(tvOS)" */;
+			buildPhases = (
+				E439BE7A1C73DF38006EED45 /* Sources */,
+				E439BE871C73DF38006EED45 /* Frameworks */,
+				E439BE881C73DF38006EED45 /* SwiftLint */,
+				E439BE891C73DF38006EED45 /* Headers */,
+				E439BE8B1C73DF38006EED45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Horizon(tvOS)";
+			productName = Horizon;
+			productReference = E439BE8F1C73DF38006EED45 /* Horizon.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -250,7 +375,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E42106571C6D161B007E5DCA /* Horizon */,
+				E42106571C6D161B007E5DCA /* Horizon(iOS) */,
+				E439BE611C73DEE8006EED45 /* Horizon(macOS) */,
+				E439BE791C73DF38006EED45 /* Horizon(tvOS) */,
+				E439BE491C73DDC6006EED45 /* Horizon(watchOS) */,
 				E42106611C6D161B007E5DCA /* HorizonTests */,
 			);
 		};
@@ -265,6 +393,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E42106601C6D161B007E5DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE5B1C73DDC6006EED45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE731C73DEE8006EED45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE8B1C73DF38006EED45 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -288,6 +437,48 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		E439BE581C73DDC6006EED45 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		E439BE701C73DEE8006EED45 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		E439BE881C73DF38006EED45 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -295,11 +486,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4B293071C711FBB00DD65BA /* Endpoint.swift in Sources */,
-				E42106801C6D180E007E5DCA /* Horizon.swift in Sources */,
-				E47FD64F1C6E8464001BCC34 /* PurgingArray.swift in Sources */,
-				E4B292FC1C6FE0B200DD65BA /* URLSessionDataTask.swift in Sources */,
-				E4B292F71C6F60D600DD65BA /* URLSessionProtocol.swift in Sources */,
+				E439BE321C73DC2C006EED45 /* Authorization.swift in Sources */,
+				E439BE391C73DC48006EED45 /* Endpoint.swift in Sources */,
+				E439BE2B1C73DBD7006EED45 /* Horizon.swift in Sources */,
+				E439BE331C73DC2C006EED45 /* PurgingArray.swift in Sources */,
+				E439BE361C73DC41006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
+				E439BE371C73DC41006EED45 /* URLSessionProtocol.swift in Sources */,
+				E4B8A7601C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,11 +500,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4B2930B1C71355600DD65BA /* EndpointTests.swift in Sources */,
-				E42106791C6D1772007E5DCA /* HorizonTests.swift in Sources */,
-				E4B292FA1C6FD76100DD65BA /* MockURLSession.swift in Sources */,
-				E4B293001C6FFF1900DD65BA /* MockURLSessionDataTask.swift in Sources */,
-				E4B292F51C6EA4E400DD65BA /* PurgingArrayTests.swift in Sources */,
+				E439BE931C73E38A006EED45 /* AuthorizationTests.swift in Sources */,
+				E439BE941C73E395006EED45 /* EndpointTests.swift in Sources */,
+				E439BE951C73E395006EED45 /* HorizonTests.swift in Sources */,
+				E439BE971C73E3A0006EED45 /* MockURLSession.swift in Sources */,
+				E439BE981C73E3A0006EED45 /* MockURLSessionDataTask.swift in Sources */,
+				E439BE961C73E395006EED45 /* PurgingArrayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE4A1C73DDC6006EED45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E439BE501C73DDC6006EED45 /* Authorization.swift in Sources */,
+				E439BE541C73DDC6006EED45 /* Endpoint.swift in Sources */,
+				E439BE4E1C73DDC6006EED45 /* Horizon.swift in Sources */,
+				E439BE511C73DDC6006EED45 /* PurgingArray.swift in Sources */,
+				E439BE561C73DDC6006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
+				E439BE4C1C73DDC6006EED45 /* URLSessionProtocol.swift in Sources */,
+				E4B8A7631C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE621C73DEE8006EED45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E439BE681C73DEE8006EED45 /* Authorization.swift in Sources */,
+				E439BE6C1C73DEE8006EED45 /* Endpoint.swift in Sources */,
+				E439BE661C73DEE8006EED45 /* Horizon.swift in Sources */,
+				E439BE691C73DEE8006EED45 /* PurgingArray.swift in Sources */,
+				E439BE6E1C73DEE8006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
+				E439BE641C73DEE8006EED45 /* URLSessionProtocol.swift in Sources */,
+				E4B8A7611C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E439BE7A1C73DF38006EED45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E439BE801C73DF38006EED45 /* Authorization.swift in Sources */,
+				E439BE841C73DF38006EED45 /* Endpoint.swift in Sources */,
+				E439BE7E1C73DF38006EED45 /* Horizon.swift in Sources */,
+				E439BE811C73DF38006EED45 /* PurgingArray.swift in Sources */,
+				E439BE861C73DF38006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
+				E439BE7C1C73DF38006EED45 /* URLSessionProtocol.swift in Sources */,
+				E4B8A7621C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +556,7 @@
 /* Begin PBXTargetDependency section */
 		E42106651C6D161B007E5DCA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E42106571C6D161B007E5DCA /* Horizon */;
+			target = E42106571C6D161B007E5DCA /* Horizon(iOS) */;
 			targetProxy = E42106641C6D161B007E5DCA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -423,11 +659,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Horizon/Resources/Info.plist;
+				INFOPLIST_FILE = Support/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.iOS;
+				PRODUCT_NAME = Horizon;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -441,11 +678,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Horizon/Resources/Info.plist;
+				INFOPLIST_FILE = Support/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.iOS;
+				PRODUCT_NAME = Horizon;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -454,7 +692,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = HorizonTests/Resources/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.HorizonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -466,10 +704,129 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = HorizonTests/Resources/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.HorizonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E439BE5D1C73DDC6006EED45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.watchOS;
+				PRODUCT_NAME = Horizon;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = armv7k;
+			};
+			name = Debug;
+		};
+		E439BE5E1C73DDC6006EED45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.watchOS;
+				PRODUCT_NAME = Horizon;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				VALID_ARCHS = armv7k;
+			};
+			name = Release;
+		};
+		E439BE751C73DEE8006EED45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.macOS;
+				PRODUCT_NAME = Horizon;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E439BE761C73DEE8006EED45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.macOS;
+				PRODUCT_NAME = Horizon;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E439BE8D1C73DF38006EED45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.tvOS;
+				PRODUCT_NAME = Horizon;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		E439BE8E1C73DF38006EED45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.pisarm.Horizon.tvOS;
+				PRODUCT_NAME = Horizon;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -485,7 +842,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E421066C1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "Horizon" */ = {
+		E421066C1C6D161B007E5DCA /* Build configuration list for PBXNativeTarget "Horizon(iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E421066D1C6D161B007E5DCA /* Debug */,
@@ -499,6 +856,33 @@
 			buildConfigurations = (
 				E42106701C6D161B007E5DCA /* Debug */,
 				E42106711C6D161B007E5DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E439BE5C1C73DDC6006EED45 /* Build configuration list for PBXNativeTarget "Horizon(watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E439BE5D1C73DDC6006EED45 /* Debug */,
+				E439BE5E1C73DDC6006EED45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E439BE741C73DEE8006EED45 /* Build configuration list for PBXNativeTarget "Horizon(macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E439BE751C73DEE8006EED45 /* Debug */,
+				E439BE761C73DEE8006EED45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E439BE8C1C73DF38006EED45 /* Build configuration list for PBXNativeTarget "Horizon(tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E439BE8D1C73DF38006EED45 /* Debug */,
+				E439BE8E1C73DF38006EED45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

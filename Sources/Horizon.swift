@@ -17,12 +17,12 @@ public enum Reachability {
 public final class Horizon {
     //MARK: Properties
     public var monitorInterval: NSTimeInterval = 5.0
-    private(set) var isRunning: Bool = false
+    private(set) var isMonitoring: Bool = false
     private(set) var endpoints: [Endpoint] = []
     private let urlSession: URLSessionProtocol
 
     //MARK: Initialization
-    public init(urlSession: URLSessionProtocol = Horizon.defaultSession()) {
+    public init(urlSession: URLSessionProtocol = NSURLSession.sharedSession()) {
         self.urlSession = urlSession
     }
 }
@@ -41,12 +41,12 @@ extension Horizon {
 extension Horizon {
     //MARK:
     public func startMonitoring() {
-        isRunning = true
+        isMonitoring = true
         checkEndpoints()
     }
 
     public func stopMonitoring() {
-        isRunning = false
+        isMonitoring = false
     }
 }
 
@@ -77,7 +77,7 @@ extension Horizon {
 
             let beginTime = NSDate.timeIntervalSinceReferenceDate()
 
-            urlSession.dataTaskWithURL(endpoint.url) { _, response, error in
+            urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
                 if error != nil {
                     endpoint.isReachable = false
                     endpoint.changeAction?(endpoint: endpoint)
@@ -91,27 +91,16 @@ extension Horizon {
                 }
 
                 dispatch_group_leave(dispatchGroup)
-
-                }.resume()
+            }.resume()
         }
 
         dispatch_group_notify(dispatchGroup, dispatch_get_main_queue()) { [unowned self] in
-            if self.isRunning {
+            if self.isMonitoring {
                 let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self.monitorInterval * Double(NSEC_PER_SEC)))
                 dispatch_after(delayTime, dispatch_get_main_queue()) { [unowned self] in
                     self.checkEndpoints()
                 }
             }
         }
-    }
-}
-
-extension Horizon {
-    //MARK:
-    private static func defaultSession(requestTimeout: NSTimeInterval = 3.0, resourceTimeout: NSTimeInterval = 3.0) -> NSURLSession {
-        let urlSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        urlSessionConfiguration.timeoutIntervalForRequest = requestTimeout
-        urlSessionConfiguration.timeoutIntervalForResource = resourceTimeout
-        return NSURLSession(configuration: urlSessionConfiguration)
     }
 }

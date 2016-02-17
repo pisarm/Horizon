@@ -10,23 +10,36 @@ import Foundation
 
 public final class Endpoint {
     //MARK: Properties
+    var authorization: Authorization?
     var isReachable: Bool = false
     var responseCode: Int?
     var responseTimes: PurgingArray<NSTimeInterval> = PurgingArray()
+    var timeout: NSTimeInterval
     var url: NSURL
     let changeAction: ((endpoint: Endpoint) -> ())?
 
     //MARK: Initialization
-    init?(urlString: String, changeAction: ((endpoint: Endpoint) -> ())? = nil) {
+    init?(urlString: String, timeout: NSTimeInterval = 3, changeAction: ((endpoint: Endpoint) -> ())? = nil) {
         guard let url = NSURL(string: urlString) else {
-            //TODO: Remove next two lines when Swift 2.2 arrives - bug in 2.1
+            //TODO: Remove fake init when Swift 2.2 arrives - bug in 2.1
             self.changeAction = nil
+            self.timeout = 0
             self.url = NSURL()
             return nil
         }
 
         self.url = url
+        self.timeout = timeout
         self.changeAction = changeAction
+    }
+
+    func request() -> NSURLRequest {
+        let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+        if let authorization = self.authorization, headerValue = authorization.headerValue() {
+            request.addValue(headerValue, forHTTPHeaderField: authorization.headerKey())
+        }
+
+        return request
     }
 }
 

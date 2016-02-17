@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E42106571C6D161B007E5DCA"
+               BlueprintIdentifier = "E439BE491C73DDC6006EED45"
                BuildableName = "Horizon.framework"
-               BlueprintName = "Horizon"
+               BlueprintName = "Horizon(watchOS)"
                ReferencedContainer = "container:Horizon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,29 +26,9 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E42106611C6D161B007E5DCA"
-               BuildableName = "HorizonTests.xctest"
-               BlueprintName = "HorizonTests"
-               ReferencedContainer = "container:Horizon.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E42106571C6D161B007E5DCA"
-            BuildableName = "Horizon.framework"
-            BlueprintName = "Horizon"
-            ReferencedContainer = "container:Horizon.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -65,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E42106571C6D161B007E5DCA"
+            BlueprintIdentifier = "E439BE491C73DDC6006EED45"
             BuildableName = "Horizon.framework"
-            BlueprintName = "Horizon"
+            BlueprintName = "Horizon(watchOS)"
             ReferencedContainer = "container:Horizon.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E42106571C6D161B007E5DCA"
+            BlueprintIdentifier = "E439BE491C73DDC6006EED45"
             BuildableName = "Horizon.framework"
-            BlueprintName = "Horizon"
+            BlueprintName = "Horizon(watchOS)"
             ReferencedContainer = "container:Horizon.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -40,7 +40,7 @@ struct PurgingArray<T>: CollectionType, GeneratorType {
         }
 
         let obj = values[index]
-        index++
+        index += 1
         return obj
     }
 

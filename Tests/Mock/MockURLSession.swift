@@ -22,11 +22,16 @@ final class MockURLSession: URLSessionProtocol {
         completionHandler(nextData, nextResponse, nextError)
         return nextDataTask
     }
+
+    func dataTaskWithRequest(request: NSURLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
+        lastURL = request.URL
+        completionHandler(nextData, nextResponse, nextError)
+        return nextDataTask
+    }
 }
 
 extension NSHTTPURLResponse {
     convenience init?(statusCode: Int) {
-        self.init(URL: NSURL(), statusCode: statusCode,
-            HTTPVersion: nil, headerFields: nil)
+        self.init(URL: NSURL(), statusCode: statusCode, HTTPVersion: nil, headerFields: nil)
     }
 }
