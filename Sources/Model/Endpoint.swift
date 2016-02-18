@@ -19,7 +19,7 @@ public final class Endpoint {
     let changeAction: ((endpoint: Endpoint) -> ())?
 
     //MARK: Initialization
-    init?(urlString: String, timeout: NSTimeInterval = 3, changeAction: ((endpoint: Endpoint) -> ())? = nil) {
+    public init?(urlString: String, timeout: NSTimeInterval = 3, changeAction: ((endpoint: Endpoint) -> ())? = nil) {
         guard let url = NSURL(string: urlString) else {
             //TODO: Remove fake init when Swift 2.2 arrives - bug in 2.1
             self.changeAction = nil
