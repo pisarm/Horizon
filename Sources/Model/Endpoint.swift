@@ -9,28 +9,41 @@
 import Foundation
 
 public final class Endpoint {
+    //MARK: Typealias
+    public typealias OnChangeAction = (endpoint: Endpoint) -> ()
+
     //MARK: Properties
-    var authorization: Authorization?
-    var isReachable: Bool = false
-    var responseCode: Int?
-    var responseTimes: PurgingArray<NSTimeInterval> = PurgingArray()
-    var timeout: NSTimeInterval
-    var url: NSURL
-    let changeAction: ((endpoint: Endpoint) -> ())?
+    //MARK: Public
+    public var timeout: NSTimeInterval
+    public var onChange: OnChangeAction?
+    public var lastReseponseTime: NSTimeInterval? {
+        return responseTimes.last
+    }
+
+    public private(set) var url: NSURL
+    public internal(set) var responseCode: Int?
+    public internal(set) var isReachable: Bool = false
+
+    //MARK: Internal
+    internal var responseTimes: PurgingArray<NSTimeInterval> = PurgingArray()
+
+    //MARK: Private
+    private var authorization: Authorization?
 
     //MARK: Initialization
-    public init?(urlString: String, timeout: NSTimeInterval = 3, changeAction: ((endpoint: Endpoint) -> ())? = nil) {
+    public init?(urlString: String, timeout: NSTimeInterval = 3, authorization: Authorization? = nil, onChange: OnChangeAction? = nil) {
         guard let url = NSURL(string: urlString) else {
             //TODO: Remove fake init when Swift 2.2 arrives - bug in 2.1
-            self.changeAction = nil
+            self.onChange = nil
             self.timeout = 0
             self.url = NSURL()
             return nil
         }
 
+        self.authorization = authorization
         self.url = url
         self.timeout = timeout
-        self.changeAction = changeAction
+        self.onChange = onChange
     }
 
     func request() -> NSURLRequest {

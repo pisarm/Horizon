@@ -80,14 +80,14 @@ extension Horizon {
             urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
                 if error != nil {
                     endpoint.isReachable = false
-                    endpoint.changeAction?(endpoint: endpoint)
+                    endpoint.onChange?(endpoint: endpoint)
                 } else {
                     if let httpURLResponse = response as? NSHTTPURLResponse {
                         endpoint.responseCode = httpURLResponse.statusCode
                     }
                     endpoint.isReachable = true
                     endpoint.responseTimes.append(NSDate.timeIntervalSinceReferenceDate() - beginTime)
-                    endpoint.changeAction?(endpoint: endpoint)
+                    endpoint.onChange?(endpoint: endpoint)
                 }
 
                 dispatch_group_leave(dispatchGroup)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Authorization {
+public enum Authorization {
     case Basic(username: String, password: String)
     case Token(token: String)
 

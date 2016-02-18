@@ -121,8 +121,8 @@ class HorizonTests: XCTestCase {
             count += 1
         }
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, changeAction: completion)
-        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, changeAction: completion)
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, onChange: completion)
+        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onChange: completion)
 
         horizon.add(endpoint)
         horizon.add(endpoint1)
@@ -151,8 +151,8 @@ class HorizonTests: XCTestCase {
             count += 1
         }
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, changeAction: completion)
-        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, changeAction: completion)
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, onChange: completion)
+        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onChange: completion)
 
         horizon.add(endpoint)
         horizon.add(endpoint1)
@@ -179,8 +179,8 @@ class HorizonTests: XCTestCase {
             count += 1
         }
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, changeAction: completion)
-        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, changeAction: completion)
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, onChange: completion)
+        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onChange: completion)
 
         horizon.add(endpoint)
         horizon.add(endpoint1)

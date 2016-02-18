@@ -33,8 +33,7 @@ final class EndpointTests: XCTestCase {
         let token = "1234"
         let authorization: Authorization = .Token(token: token)
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, timeout: timeout)
-        endpoint.authorization = authorization
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, timeout: timeout, authorization: authorization)
 
         let request = endpoint.request()
 
