@@ -23,7 +23,7 @@ public enum Authorization {
                 return nil
             }
 
-            let encodedData = data.base64EncodedDataWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+            let encodedData = data.base64EncodedDataWithOptions([])
 
             guard let encodedString = String(data: encodedData, encoding: NSUTF8StringEncoding) else {
                 return nil

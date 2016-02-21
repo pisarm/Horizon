@@ -10,18 +10,7 @@ import XCTest
 @testable import Horizon
 
 final class EndpointTests: XCTestCase {
-    //MARK:
-    override func setUp() {
-        super.setUp()
-
-    }
-
-    override func tearDown() {
-
-        super.tearDown()
-    }
-
-    //MARK:
+    //MARK: Tests
     func testFailingInit() {
         let endpoint = Endpoint(urlString: " ")
         XCTAssertNil(endpoint)
@@ -41,6 +30,21 @@ final class EndpointTests: XCTestCase {
         XCTAssertEqual(timeout, request.timeoutInterval)
         XCTAssertNotNil(request.allHTTPHeaderFields!["Authorization"])
         XCTAssertEqual("Bearer \(token)", request.allHTTPHeaderFields!["Authorization"]!)
+    }
+
+    func testLastResponseTime() {
+        let responseTime: NSTimeInterval = 1
+        let endpoint: Endpoint! = Endpoint(urlString: "http://pisarm.io")
+        endpoint.responseTimes.append(responseTime)
+        XCTAssertEqual(responseTime, endpoint.lastResponseTime)
+    }
+
+    func testMeanResponseTime() {
+        let endpoint: Endpoint! = Endpoint(urlString: "http://pisarm.io")
+        for i in 1...10 {
+            endpoint.responseTimes.append(NSTimeInterval(i))
+        }
+        XCTAssertEqual(5.5, endpoint.meanResponseTime)
     }
 
     func testEquality() {

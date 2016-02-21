@@ -10,15 +10,15 @@ import Foundation
 
 public final class Endpoint {
     //MARK: Typealias
-    public typealias OnChangeAction = (endpoint: Endpoint) -> ()
+    public typealias OnUpdate = (endpoint: Endpoint, didChangeReachable: Bool) -> ()
 
     //MARK: Properties
     //MARK: Public
     public var timeout: NSTimeInterval
-    public var onChange: OnChangeAction?
-    public var lastReseponseTime: NSTimeInterval? {
-        return responseTimes.last
-    }
+    public var onUpdate: ((endpoint: Endpoint, didChangeReachable: Bool) -> ())?
+
+    public var lastResponseTime: NSTimeInterval? { return responseTimes.last }
+    public var meanResponseTime: NSTimeInterval { return responseTimes.reduce(0, combine: +) / Double(responseTimes.count) }
 
     public private(set) var url: NSURL
     public internal(set) var responseCode: Int?
@@ -31,10 +31,10 @@ public final class Endpoint {
     private var authorization: Authorization?
 
     //MARK: Initialization
-    public init?(urlString: String, timeout: NSTimeInterval = 3, authorization: Authorization? = nil, onChange: OnChangeAction? = nil) {
+    public init?(urlString: String, timeout: NSTimeInterval = 3, authorization: Authorization? = nil, onUpdate: OnUpdate? = nil) {
         guard let url = NSURL(string: urlString) else {
             //TODO: Remove fake init when Swift 2.2 arrives - bug in 2.1
-            self.onChange = nil
+            self.onUpdate = nil
             self.timeout = 0
             self.url = NSURL()
             return nil
@@ -43,7 +43,7 @@ public final class Endpoint {
         self.authorization = authorization
         self.url = url
         self.timeout = timeout
-        self.onChange = onChange
+        self.onUpdate = onUpdate
     }
 
     func request() -> NSURLRequest {

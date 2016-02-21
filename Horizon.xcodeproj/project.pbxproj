@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E42106631C6D161B007E5DCA /* Horizon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42106581C6D161B007E5DCA /* Horizon.framework */; };
+		E4364BA31C77D405001DB331 /* URLSessionProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364BA21C77D405001DB331 /* URLSessionProtocolTests.swift */; };
 		E439BE2A1C73DBD7006EED45 /* Horizon.h in Headers */ = {isa = PBXBuildFile; fileRef = E439BE261C73DBD7006EED45 /* Horizon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E439BE2B1C73DBD7006EED45 /* Horizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE271C73DBD7006EED45 /* Horizon.swift */; };
 		E439BE321C73DC2C006EED45 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE301C73DC2C006EED45 /* Authorization.swift */; };
@@ -42,10 +43,6 @@
 		E439BE961C73E395006EED45 /* PurgingArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE441C73DD5D006EED45 /* PurgingArrayTests.swift */; };
 		E439BE971C73E3A0006EED45 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE3D1C73DD51006EED45 /* MockURLSession.swift */; };
 		E439BE981C73E3A0006EED45 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE3E1C73DD51006EED45 /* MockURLSessionDataTask.swift */; };
-		E4B8A7601C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
-		E4B8A7611C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
-		E4B8A7621C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
-		E4B8A7631C73E53A00C16A57 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +58,7 @@
 /* Begin PBXFileReference section */
 		E42106581C6D161B007E5DCA /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42106621C6D161B007E5DCA /* HorizonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4364BA21C77D405001DB331 /* URLSessionProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolTests.swift; sourceTree = "<group>"; };
 		E439BE221C73DB81006EED45 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		E439BE261C73DBD7006EED45 /* Horizon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horizon.h; sourceTree = "<group>"; };
 		E439BE271C73DBD7006EED45 /* Horizon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Horizon.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 		E439BE771C73DEE8006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E439BE8F1C73DF38006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E439BE911C73DF88006EED45 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +161,7 @@
 				E439BE431C73DD5D006EED45 /* HorizonTests.swift */,
 				E439BE3A1C73DC87006EED45 /* Mock */,
 				E439BE441C73DD5D006EED45 /* PurgingArrayTests.swift */,
+				E4364BA21C77D405001DB331 /* URLSessionProtocolTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -190,7 +188,6 @@
 			children = (
 				E439BE341C73DC41006EED45 /* URLSessionDataTaskProtocol.swift */,
 				E439BE351C73DC41006EED45 /* URLSessionProtocol.swift */,
-				E4B8A75F1C73E53A00C16A57 /* EndpointProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -492,7 +489,6 @@
 				E439BE331C73DC2C006EED45 /* PurgingArray.swift in Sources */,
 				E439BE361C73DC41006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
 				E439BE371C73DC41006EED45 /* URLSessionProtocol.swift in Sources */,
-				E4B8A7601C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +499,7 @@
 				E439BE931C73E38A006EED45 /* AuthorizationTests.swift in Sources */,
 				E439BE941C73E395006EED45 /* EndpointTests.swift in Sources */,
 				E439BE951C73E395006EED45 /* HorizonTests.swift in Sources */,
+				E4364BA31C77D405001DB331 /* URLSessionProtocolTests.swift in Sources */,
 				E439BE971C73E3A0006EED45 /* MockURLSession.swift in Sources */,
 				E439BE981C73E3A0006EED45 /* MockURLSessionDataTask.swift in Sources */,
 				E439BE961C73E395006EED45 /* PurgingArrayTests.swift in Sources */,
@@ -519,7 +516,6 @@
 				E439BE511C73DDC6006EED45 /* PurgingArray.swift in Sources */,
 				E439BE561C73DDC6006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
 				E439BE4C1C73DDC6006EED45 /* URLSessionProtocol.swift in Sources */,
-				E4B8A7631C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,7 +529,6 @@
 				E439BE691C73DEE8006EED45 /* PurgingArray.swift in Sources */,
 				E439BE6E1C73DEE8006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
 				E439BE641C73DEE8006EED45 /* URLSessionProtocol.swift in Sources */,
-				E4B8A7611C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +542,6 @@
 				E439BE811C73DF38006EED45 /* PurgingArray.swift in Sources */,
 				E439BE861C73DF38006EED45 /* URLSessionDataTaskProtocol.swift in Sources */,
 				E439BE7C1C73DF38006EED45 /* URLSessionProtocol.swift in Sources */,
-				E4B8A7621C73E53A00C16A57 /* EndpointProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

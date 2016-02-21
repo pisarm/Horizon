@@ -10,9 +10,11 @@ import XCTest
 @testable import Horizon
 
 class HorizonTests: XCTestCase {
+    //MARK: Properties
     var horizon: Horizon!
     let session: MockURLSession = MockURLSession()
-    //MARK:
+
+    //MARK: Setup
     override func setUp() {
         super.setUp()
 
@@ -25,6 +27,7 @@ class HorizonTests: XCTestCase {
         super.tearDown()
     }
 
+    //MARK: Tests
     func testAddHost() {
         let pisarmDotIo: Endpoint! = Endpoint(urlString: "pisarm.io")
         horizon.add(pisarmDotIo)
@@ -60,7 +63,7 @@ class HorizonTests: XCTestCase {
 
         let urlString = "http://pisarm.io"
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString) { endpoint in
+        let endpoint: Endpoint! = Endpoint(urlString: urlString) { endpoint, _ in
             XCTAssertEqual(responseCode, endpoint.responseCode)
             expectation.fulfill()
         }
@@ -76,7 +79,7 @@ class HorizonTests: XCTestCase {
 
         let urlString = "http://pisarm.io"
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _ in
+        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _, _ in
             XCTAssertEqual(Reachability.Full, self.horizon.reachability)
             expectation.fulfill()
         }
@@ -94,7 +97,7 @@ class HorizonTests: XCTestCase {
 
         let urlString = "http://pisarm.io"
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _ in
+        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _, _ in
             XCTAssertEqual(Reachability.None, self.horizon.reachability)
             expectation.fulfill()
         }
@@ -112,7 +115,7 @@ class HorizonTests: XCTestCase {
         let urlString1 = "http://pisarm.info"
 
         var count = 0
-        let completion: (endpoint: Endpoint) -> () = { _ in
+        let onUpdate: (endpoint: Endpoint, didChangeReachable: Bool) -> () = { _, _ in
             if count + 1 == 2 {
                 XCTAssertEqual(Reachability.Full, self.horizon.reachability)
                 expectation.fulfill()
@@ -121,8 +124,8 @@ class HorizonTests: XCTestCase {
             count += 1
         }
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, onChange: completion)
-        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onChange: completion)
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, onUpdate: onUpdate)
+        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onUpdate: onUpdate)
 
         horizon.add(endpoint)
         horizon.add(endpoint1)
@@ -140,7 +143,7 @@ class HorizonTests: XCTestCase {
         let urlString1 = "http://pisarm.info"
 
         var count = 0
-        let completion: (endpoint: Endpoint) -> () = { _ in
+        let onUpdate: (endpoint: Endpoint, didChangeReachable: Bool) -> () = { _, _ in
             if count == 0 {
                 self.session.nextError = nil
             } else if count + 1 == 2 {
@@ -151,8 +154,8 @@ class HorizonTests: XCTestCase {
             count += 1
         }
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, onChange: completion)
-        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onChange: completion)
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, onUpdate: onUpdate)
+        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onUpdate: onUpdate)
 
         horizon.add(endpoint)
         horizon.add(endpoint1)
@@ -170,7 +173,7 @@ class HorizonTests: XCTestCase {
         let urlString1 = "http://pisarm.info"
 
         var count = 0
-        let completion: (endpoint: Endpoint) -> () = { _ in
+        let onUpdate: (endpoint: Endpoint, didChangeReachable: Bool) -> () = { _, _ in
             if count + 1 == 2 {
                 XCTAssertEqual(Reachability.None, self.horizon.reachability)
                 expectation.fulfill()
@@ -179,11 +182,33 @@ class HorizonTests: XCTestCase {
             count += 1
         }
 
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, onChange: completion)
-        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onChange: completion)
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, onUpdate: onUpdate)
+        let endpoint1: Endpoint! = Endpoint(urlString: urlString1, onUpdate: onUpdate)
 
         horizon.add(endpoint)
         horizon.add(endpoint1)
+        horizon.startMonitoring()
+
+        waitForExpectationsWithTimeout(1, handler: nil)
+    }
+
+    func testMonitoring() {
+        let expectation = expectationWithDescription("Monitoring with a given intervel should be possible")
+
+        let urlString = "http://pisarm.io"
+
+        horizon.monitorInterval = 0.01
+
+        var countdown = 2
+        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _, _ in
+            if countdown == 0 {
+                expectation.fulfill()
+            }
+
+            countdown -= 1
+        }
+
+        horizon.add(endpoint)
         horizon.startMonitoring()
 
         waitForExpectationsWithTimeout(1, handler: nil)

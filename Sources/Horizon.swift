@@ -16,13 +16,14 @@ public enum Reachability {
 
 public final class Horizon {
     //MARK: Properties
+    public var onReachabilityChange: ((reachability: Reachability) -> ())?
     public var monitorInterval: NSTimeInterval = 5.0
     private(set) var isMonitoring: Bool = false
     private(set) var endpoints: [Endpoint] = []
     private let urlSession: URLSessionProtocol
 
     //MARK: Initialization
-    public init(urlSession: URLSessionProtocol = NSURLSession.sharedSession()) {
+    public init(urlSession: URLSessionProtocol = NSURLSession.sharedSession(), onReachabilityChange: ((reachability: Reachability) -> ())? = nil) {
         self.urlSession = urlSession
     }
 }
@@ -57,11 +58,12 @@ extension Horizon {
             .map { return $0.isReachable ? 1 : 0 }
             .reduce(0, combine: +)
 
-        if reachableEndPointCount == endpoints.count {
+        switch reachableEndPointCount {
+        case endpoints.count:
             return .Full
-        } else if reachableEndPointCount == 0 {
+        case 0:
             return .None
-        } else {
+        default:
             return .Partial
         }
     }
@@ -78,27 +80,26 @@ extension Horizon {
             let beginTime = NSDate.timeIntervalSinceReferenceDate()
 
             urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
-                if error != nil {
-                    endpoint.isReachable = false
-                    endpoint.onChange?(endpoint: endpoint)
-                } else {
-                    if let httpURLResponse = response as? NSHTTPURLResponse {
-                        endpoint.responseCode = httpURLResponse.statusCode
-                    }
-                    endpoint.isReachable = true
-                    endpoint.responseTimes.append(NSDate.timeIntervalSinceReferenceDate() - beginTime)
-                    endpoint.onChange?(endpoint: endpoint)
+                let oldReachableValue = endpoint.isReachable
+                let newReachableValue = error == nil ? true : false
+
+                if let httpURLResponse = response as? NSHTTPURLResponse {
+                    endpoint.responseCode = httpURLResponse.statusCode
                 }
+                endpoint.responseTimes.append(NSDate.timeIntervalSinceReferenceDate() - beginTime)
+                endpoint.isReachable = newReachableValue
+                endpoint.onUpdate?(endpoint: endpoint, didChangeReachable: oldReachableValue != newReachableValue)
 
                 dispatch_group_leave(dispatchGroup)
-            }.resume()
+                }.resume()
         }
 
-        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue()) { [unowned self] in
-            if self.isMonitoring {
-                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self.monitorInterval * Double(NSEC_PER_SEC)))
-                dispatch_after(delayTime, dispatch_get_main_queue()) { [unowned self] in
-                    self.checkEndpoints()
+        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue()) { [weak self] in
+            if (self?.isMonitoring) != nil {
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self!.monitorInterval * NSTimeInterval(NSEC_PER_SEC)))
+
+                dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+                    self?.checkEndpoints()
                 }
             }
         }

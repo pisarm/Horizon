@@ -11,8 +11,10 @@ import XCTest
 @testable import Horizon
 
 final class PurgingArrayTests: XCTestCase {
+    //MARK: Properties
     var purgingArray: PurgingArray<Int>!
 
+    //MARK: Setup
     override func setUp() {
         super.setUp()
 
@@ -25,6 +27,7 @@ final class PurgingArrayTests: XCTestCase {
         super.tearDown()
     }
 
+    //MARK: Tests
     func testAdd() {
         for i in 0...9 {
             purgingArray.append(i)
