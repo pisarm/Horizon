@@ -20,6 +20,14 @@ final class AuthorizationTests: XCTestCase {
         XCTAssertEqual("Basic \(expectedResult)", basicAuth.headerValue())
     }
 
+    func testBasicAuthorizationInvalidUTF8() {
+        let cc: [unichar] = [0xd800]
+        let invalidString = String(NSString(characters: cc, length: cc.count))
+
+        let basicAuth: Authorization = .Basic(username: invalidString, password: invalidString)
+        XCTAssertNil(basicAuth.headerValue())
+    }
+
     func testTokenAuthorization() {
         let token = "1234123412341234"
         let tokenAuth: Authorization = .Token(token: token)

@@ -25,11 +25,7 @@ public enum Authorization {
 
             let encodedData = data.base64EncodedDataWithOptions([])
 
-            guard let encodedString = String(data: encodedData, encoding: NSUTF8StringEncoding) else {
-                return nil
-            }
-
-            return "Basic \(encodedString)"
+            return "Basic \(String(data: encodedData, encoding: NSUTF8StringEncoding)!)"
         case let .Token(token):
             return "Bearer \(token)"
         }
