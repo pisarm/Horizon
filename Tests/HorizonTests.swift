@@ -197,10 +197,8 @@ class HorizonTests: XCTestCase {
 
         let urlString = "http://pisarm.io"
 
-        horizon.monitorInterval = 0.01
-
         var countdown = 2
-        let endpoint: Endpoint! = Endpoint(urlString: urlString) { _, _ in
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, interval: 0.01) { _, _ in
             if countdown == 0 {
                 expectation.fulfill()
             }
