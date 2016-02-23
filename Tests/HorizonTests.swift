@@ -211,4 +211,30 @@ class HorizonTests: XCTestCase {
 
         waitForExpectationsWithTimeout(1, handler: nil)
     }
+
+    func testReachabilityChange() {
+        let expectation = expectationWithDescription("Monitoring with a given intervel should be possible")
+
+        let urlString = "http://pisarm.io"
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, interval: 0.1)
+
+        horizon.add(endpoint)
+        var countdown = 2
+        horizon.onReachabilityChange = { reachability, endpoint in
+            if countdown == 0 {
+                expectation.fulfill()
+            } else if countdown % 2 == 0 {
+                XCTAssertEqual(Reachability.Full, reachability)
+                self.session.nextError = NSError(domain: "dk.pisarm.mock", code: 7, userInfo: nil)
+            } else {
+                XCTAssertEqual(Reachability.None, reachability)
+                self.session.nextError = nil
+            }
+
+            countdown -= 1
+        }
+        horizon.startMonitoring()
+
+        waitForExpectationsWithTimeout(1, handler: nil)
+    }
 }

@@ -16,13 +16,13 @@ public enum Reachability {
 
 public final class Horizon {
     //MARK: Properties
-    public var onReachabilityChange: ((reachability: Reachability) -> ())?
+    public var onReachabilityChange: ((reachability: Reachability, endpoint: Endpoint) -> ())?
     private(set) var isMonitoring: Bool = false
     private(set) var endpoints: [Endpoint] = []
     private let urlSession: URLSessionProtocol
 
     //MARK: Initialization
-    public init(urlSession: URLSessionProtocol = NSURLSession.sharedSession(), onReachabilityChange: ((reachability: Reachability) -> ())? = nil) {
+    public init(urlSession: URLSessionProtocol = NSURLSession.sharedSession(), onReachabilityChange: ((reachability: Reachability, endpoint: Endpoint) -> ())? = nil) {
         self.urlSession = urlSession
     }
 }
@@ -78,7 +78,7 @@ extension Horizon {
     func checkEndpoint(endpoint: Endpoint) {
         let beginTime = NSDate.timeIntervalSinceReferenceDate()
 
-        let dataTask = urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
+        urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
             let oldReachableValue = endpoint.isReachable
             let newReachableValue = error == nil ? true : false
 
@@ -89,6 +89,10 @@ extension Horizon {
             endpoint.isReachable = newReachableValue
             endpoint.onUpdate?(endpoint: endpoint, didChangeReachable: oldReachableValue != newReachableValue)
 
+            if oldReachableValue != newReachableValue {
+                self.onReachabilityChange?(reachability: self.reachability, endpoint: endpoint)
+            }
+
             if self.isMonitoring {
                 let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(endpoint.interval * NSTimeInterval(NSEC_PER_SEC)))
 
@@ -97,45 +101,6 @@ extension Horizon {
                 }
             }
 
-        }
-
-
-
-        dataTask.resume()
-        //TODO: do we need to keep track of dataTasks?
+        }.resume()
     }
-
-    //    func checkEndpoints() {
-    //        let dispatchGroup = dispatch_group_create()
-    //
-    //        endpoints.forEach { endpoint in
-    //            dispatch_group_enter(dispatchGroup)
-    //
-    //            let beginTime = NSDate.timeIntervalSinceReferenceDate()
-    //
-    //            urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
-    //                let oldReachableValue = endpoint.isReachable
-    //                let newReachableValue = error == nil ? true : false
-    //
-    //                if let httpURLResponse = response as? NSHTTPURLResponse {
-    //                    endpoint.responseCode = httpURLResponse.statusCode
-    //                }
-    //                endpoint.responseTimes.append(NSDate.timeIntervalSinceReferenceDate() - beginTime)
-    //                endpoint.isReachable = newReachableValue
-    //                endpoint.onUpdate?(endpoint: endpoint, didChangeReachable: oldReachableValue != newReachableValue)
-    //
-    //                dispatch_group_leave(dispatchGroup)
-    //                }.resume()
-    //        }
-    //
-    //        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue()) { [weak self] in
-    //            if (self?.isMonitoring) != nil {
-    //                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self!.monitorInterval * NSTimeInterval(NSEC_PER_SEC)))
-    //
-    //                dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
-    //                    self?.checkEndpoints()
-    //                }
-    //            }
-    //        }
-    //    }
 }
