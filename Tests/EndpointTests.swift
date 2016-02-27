@@ -61,4 +61,10 @@ final class EndpointTests: XCTestCase {
 
         XCTAssertLessThan(anotherEndpoint, endpoint)
     }
+
+    func testCustomDebugStringConvertible() {
+        let urlString = "http://pisarm.io"
+        let endpoint: Endpoint! = Endpoint(urlString: urlString)
+        XCTAssertEqual(urlString, endpoint.debugDescription)
+    }
 }
