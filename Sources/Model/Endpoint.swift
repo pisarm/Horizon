@@ -52,12 +52,26 @@ public final class Endpoint {
     }
 }
 
+extension Endpoint: Hashable {
+    //MARK: Hashable
+    public var hashValue: Int {
+        return url.hashValue
+    }
+}
+
 extension Endpoint: Comparable { }
 //MARK: Comparable
 public func == (lhs: Endpoint, rhs: Endpoint) -> Bool {
-    return lhs.url.absoluteString == rhs.url.absoluteString
+    return lhs.url == rhs.url
 }
 
 public func < (lhs: Endpoint, rhs: Endpoint) -> Bool {
     return lhs.url.absoluteString < rhs.url.absoluteString
+}
+
+extension Endpoint: CustomDebugStringConvertible {
+    //MARK: CustomDebugStringConvertible
+    public var debugDescription: String {
+        return "\(url.absoluteString)"
+    }
 }

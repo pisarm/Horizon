@@ -16,9 +16,10 @@ public enum Reachability {
 
 public final class Horizon {
     //MARK: Properties
+    public var endpoints: [Endpoint] { return Array(endpointTaskMap.keys) }
     public var onReachabilityChange: ((reachability: Reachability, endpoint: Endpoint) -> ())?
     private(set) var isMonitoring: Bool = false
-    private(set) var endpoints: [Endpoint] = []
+    private var endpointTaskMap: [Endpoint : URLSessionDataTaskProtocol?] = [:]
     private let urlSession: URLSessionProtocol
 
     //MARK: Initialization
@@ -30,7 +31,11 @@ public final class Horizon {
 extension Horizon {
     //MARK:
     public func add(endpoint: Endpoint) {
-        endpoints.append(endpoint)
+        guard endpointTaskMap[endpoint] == nil else {
+            return
+        }
+
+        endpointTaskMap[endpoint] = nil as URLSessionDataTaskProtocol?
 
         if isMonitoring {
             checkEndpoint(endpoint)
@@ -38,32 +43,44 @@ extension Horizon {
     }
 
     public func remove(endpoint: Endpoint) {
-        endpoints = endpoints.filter { $0.url.absoluteString != endpoint.url.absoluteString }
+        guard let task = endpointTaskMap[endpoint] else {
+            return
+        }
+
+        task?.cancel()
+        endpointTaskMap[endpoint] = nil
     }
 }
 
 extension Horizon {
     //MARK:
     public func startMonitoring() {
+        guard isMonitoring == false else {
+            return
+        }
+
         isMonitoring = true
 
-        endpoints.forEach { self.checkEndpoint($0) }
+        endpointTaskMap.forEach { self.checkEndpoint($0.0) }
     }
 
     public func stopMonitoring() {
         isMonitoring = false
+
+        endpointTaskMap.forEach { $0.1?.cancel() }
     }
 }
 
 extension Horizon {
     //MARK:
     var reachability: Reachability {
-        let reachableEndPointCount = endpoints
+        let reachableEndPointCount = endpointTaskMap
+            .keys
             .map { return $0.isReachable ? 1 : 0 }
             .reduce(0, combine: +)
 
         switch reachableEndPointCount {
-        case endpoints.count:
+        case endpointTaskMap.count:
             return .Full
         case 0:
             return .None
@@ -78,7 +95,7 @@ extension Horizon {
     func checkEndpoint(endpoint: Endpoint) {
         let beginTime = NSDate.timeIntervalSinceReferenceDate()
 
-        urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
+        let dataTask = urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
             let oldReachableValue = endpoint.isReachable
             let newReachableValue = error == nil ? true : false
 
@@ -100,7 +117,13 @@ extension Horizon {
                     self?.checkEndpoint(endpoint)
                 }
             }
+        }
 
-        }.resume()
+        // If the endpoint hasn't been removed from the list of endpoints while we were waiting we
+        // add and resume
+        if let _ = endpointTaskMap[endpoint] {
+            endpointTaskMap[endpoint] = dataTask
+            dataTask.resume()
+        }
     }
 }
