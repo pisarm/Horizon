@@ -36,7 +36,7 @@ final class EndpointTests: XCTestCase {
         let responseTime: NSTimeInterval = 1
         let endpoint: Endpoint! = Endpoint(urlString: "http://pisarm.io")
         endpoint.responseTimes.append(responseTime)
-        XCTAssertEqual(responseTime, endpoint.lastResponseTime)
+        XCTAssertEqual(responseTime, endpoint.responseTimes.last)
     }
 
     func testMeanResponseTime() {
@@ -44,7 +44,7 @@ final class EndpointTests: XCTestCase {
         for i in 1...10 {
             endpoint.responseTimes.append(NSTimeInterval(i))
         }
-        XCTAssertEqual(5.5, endpoint.meanResponseTime)
+        XCTAssertEqual(5.5, endpoint.responseTimes.average)
     }
 
     func testEquality() {

@@ -16,12 +16,11 @@ public final class Endpoint {
     public var interval: NSTimeInterval
     public var timeout: NSTimeInterval
     public var onUpdate: ((endpoint: Endpoint, didChangeReachable: Bool) -> ())?
-    public var lastResponseTime: NSTimeInterval? { return responseTimes.last }
-    public var meanResponseTime: NSTimeInterval { return responseTimes.reduce(0, combine: +) / Double(responseTimes.count) }
-    public private(set) var url: NSURL
-    public internal(set) var responseCode: Int?
-    public internal(set) var isReachable: Bool = false
-    internal var responseTimes: PurgingArray<NSTimeInterval> = PurgingArray()
+
+    public private (set) var url: NSURL
+    public internal (set) var responseCode: Int?
+    public internal (set) var isReachable: Bool = false
+    public internal (set) var responseTimes: PurgingArray<NSTimeInterval> = PurgingArray(purgeCount: 100)
     private var authorization: Authorization?
 
     //MARK: Initialization

@@ -43,6 +43,10 @@
 		E439BE961C73E395006EED45 /* PurgingArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE441C73DD5D006EED45 /* PurgingArrayTests.swift */; };
 		E439BE971C73E3A0006EED45 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE3D1C73DD51006EED45 /* MockURLSession.swift */; };
 		E439BE981C73E3A0006EED45 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439BE3E1C73DD51006EED45 /* MockURLSessionDataTask.swift */; };
+		E478CC3E1C81CD5900E38223 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478CC3D1C81CD5900E38223 /* Statistics.swift */; };
+		E478CC3F1C81CD5900E38223 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478CC3D1C81CD5900E38223 /* Statistics.swift */; };
+		E478CC401C81CD5900E38223 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478CC3D1C81CD5900E38223 /* Statistics.swift */; };
+		E478CC411C81CD5900E38223 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478CC3D1C81CD5900E38223 /* Statistics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,7 @@
 		E439BE771C73DEE8006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E439BE8F1C73DF38006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E439BE911C73DF88006EED45 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E478CC3D1C81CD5900E38223 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +202,7 @@
 			children = (
 				E439BE301C73DC2C006EED45 /* Authorization.swift */,
 				E439BE311C73DC2C006EED45 /* PurgingArray.swift */,
+				E478CC3D1C81CD5900E38223 /* Statistics.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E478CC3E1C81CD5900E38223 /* Statistics.swift in Sources */,
 				E439BE321C73DC2C006EED45 /* Authorization.swift in Sources */,
 				E439BE391C73DC48006EED45 /* Endpoint.swift in Sources */,
 				E439BE2B1C73DBD7006EED45 /* Horizon.swift in Sources */,
@@ -510,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E478CC411C81CD5900E38223 /* Statistics.swift in Sources */,
 				E439BE501C73DDC6006EED45 /* Authorization.swift in Sources */,
 				E439BE541C73DDC6006EED45 /* Endpoint.swift in Sources */,
 				E439BE4E1C73DDC6006EED45 /* Horizon.swift in Sources */,
@@ -523,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E478CC3F1C81CD5900E38223 /* Statistics.swift in Sources */,
 				E439BE681C73DEE8006EED45 /* Authorization.swift in Sources */,
 				E439BE6C1C73DEE8006EED45 /* Endpoint.swift in Sources */,
 				E439BE661C73DEE8006EED45 /* Horizon.swift in Sources */,
@@ -536,6 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E478CC401C81CD5900E38223 /* Statistics.swift in Sources */,
 				E439BE801C73DF38006EED45 /* Authorization.swift in Sources */,
 				E439BE841C73DF38006EED45 /* Endpoint.swift in Sources */,
 				E439BE7E1C73DF38006EED45 /* Horizon.swift in Sources */,

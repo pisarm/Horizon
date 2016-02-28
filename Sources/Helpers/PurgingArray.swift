@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct PurgingArray<T>: CollectionType, GeneratorType {
-    typealias Generator = AnyGenerator<T>
-    typealias Index = Array<T>.Index
-    typealias Element = T
+public struct PurgingArray<T>: CollectionType, GeneratorType {
+    public typealias Generator = AnyGenerator<T>
+    public typealias Index = Array<T>.Index
+    public typealias Element = T
 
-    var purgeCount: Int
-    var startIndex: Index { return values.startIndex }
-    var endIndex: Index { return values.endIndex }
+    public var purgeCount: Int
+    public var startIndex: Index { return values.startIndex }
+    public var endIndex: Index { return values.endIndex }
     private var values: [T] = []
     private var index = 0
 
-    init(purgeCount: Int = 100) {
+    init(purgeCount: Int) {
         self.purgeCount = purgeCount
     }
 
@@ -30,11 +30,11 @@ struct PurgingArray<T>: CollectionType, GeneratorType {
         values.append(value)
     }
 
-    func generate() -> Generator {
+    public func generate() -> Generator {
         return anyGenerator(self)
     }
 
-    mutating func next() -> Element? {
+    public mutating func next() -> Element? {
         guard index != values.endIndex else {
             return nil
         }
@@ -44,7 +44,7 @@ struct PurgingArray<T>: CollectionType, GeneratorType {
         return obj
     }
 
-    subscript(index: Index) -> Element {
+    public subscript(index: Index) -> Element {
         return values[index]
     }
 }
