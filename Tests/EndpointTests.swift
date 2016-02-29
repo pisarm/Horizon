@@ -32,21 +32,6 @@ final class EndpointTests: XCTestCase {
         XCTAssertEqual("Bearer \(token)", request.allHTTPHeaderFields!["Authorization"]!)
     }
 
-    func testLastResponseTime() {
-        let responseTime: NSTimeInterval = 1
-        let endpoint: Endpoint! = Endpoint(urlString: "http://pisarm.io")
-        endpoint.responseTimes.append(responseTime)
-        XCTAssertEqual(responseTime, endpoint.responseTimes.last)
-    }
-
-    func testMeanResponseTime() {
-        let endpoint: Endpoint! = Endpoint(urlString: "http://pisarm.io")
-        for i in 1...10 {
-            endpoint.responseTimes.append(NSTimeInterval(i))
-        }
-        XCTAssertEqual(5.5, endpoint.responseTimes.average)
-    }
-
     func testEquality() {
         let urlString = "http://pisarm.io"
         let endpoint: Endpoint! = Endpoint(urlString: urlString)

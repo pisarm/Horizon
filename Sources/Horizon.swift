@@ -43,7 +43,12 @@ extension Horizon {
     }
 
     public func remove(endpoint: Endpoint) {
-        guard let task = endpointTaskMap[endpoint] else {
+        endpointTaskMap[endpoint]??.cancel()
+        endpointTaskMap[endpoint] = nil
+    }
+
+    public func remove(endpointWithURL: NSURL) {
+        guard let (endpoint, task) = endpointTaskMap.filter({ $0.0.url == endpointWithURL }).first else {
             return
         }
 

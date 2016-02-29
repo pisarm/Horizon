@@ -28,19 +28,38 @@ class HorizonTests: XCTestCase {
     }
 
     //MARK: Tests
-    func testAddHost() {
+    func testAddEndpoint() {
         let pisarmDotIo: Endpoint! = Endpoint(urlString: "pisarm.io")
         horizon.add(pisarmDotIo)
+        horizon.add(pisarmDotIo)    //Added twice to test that a given endpoint can only be added once
         XCTAssertEqual(1, horizon.endpoints.count)
     }
 
-    func testRemoveHost() {
-        let pisarmDotIo: Endpoint! = Endpoint(urlString: "pisarm.io")
+    func testRemoveEndpointByEndpoint() {
         let pisarmDotGeneral: Endpoint! = Endpoint(urlString: "pisarm.general")
-
-        horizon.add(pisarmDotIo)
         horizon.add(pisarmDotGeneral)
         horizon.remove(pisarmDotGeneral)
+        XCTAssertEqual(0, horizon.endpoints.count)
+    }
+
+    func testRemoveEndpointByURL() {
+        let pisarmDotIoString = "pisarm.io"
+        let pisarmDotIo: Endpoint! = Endpoint(urlString: pisarmDotIoString)
+
+        horizon.add(pisarmDotIo)
+        horizon.remove(NSURL(string: pisarmDotIoString)!)
+        horizon.remove(NSURL(string: pisarmDotIoString)!) //Removed twice intentionally
+
+        XCTAssertEqual(0, horizon.endpoints.count)
+    }
+
+    func testNotRemovingEndpointByURL() {
+        let pisarmDotIoString = "pisarm.io"
+        let pisarmDotIo: Endpoint! = Endpoint(urlString: pisarmDotIoString)
+
+        horizon.add(pisarmDotIo)
+        horizon.remove(NSURL(string: "pisarm.not.found.here")!)
+
         XCTAssertEqual(1, horizon.endpoints.count)
     }
 

@@ -31,7 +31,26 @@ final class StatisticsTests: XCTestCase {
     func testAverage() {
         XCTAssertEqual(5.5, integers.average)
         XCTAssertEqual(5.5, doubles.average)
+    }
 
+    func testStandardDeviation() {
+        let expectedStandardDeviation: Double = 2.8722813232690143
+
+        XCTAssertNil(emptyIntegers.standardDeviation())
+        XCTAssertEqual(expectedStandardDeviation, doubles.standardDeviation())
+
+        XCTAssertNil(emptyDoubles.standardDeviation())
+        XCTAssertEqual(expectedStandardDeviation, doubles.standardDeviation())
+    }
+
+    func testStandardDeviationSample() {
+        let expectedStandardDeviationSample: Double = 3.0276503540974917
+
+        XCTAssertNil(emptyIntegers.standardDeviation(isSample: true))
+        XCTAssertEqual(expectedStandardDeviationSample, integers.standardDeviation(isSample: true))
+
+        XCTAssertNil(emptyDoubles.standardDeviation(isSample: true))
+        XCTAssertEqual(expectedStandardDeviationSample, doubles.standardDeviation(isSample: true))
     }
 
     func testVariance() {
@@ -45,20 +64,12 @@ final class StatisticsTests: XCTestCase {
     }
 
     func testVarianceSample() {
+        let expectedVariance: Double = 9.1666666666666667
+
         XCTAssertNil(oneInteger.variance(isSample: true))
-        XCTAssertEqual(9.1666666666666667, integers.variance(isSample: true)!)
+        XCTAssertEqual(expectedVariance, integers.variance(isSample: true))
 
         XCTAssertNil(oneDouble.variance(isSample: true))
-        XCTAssertEqual(9.1666666666666667, doubles.variance(isSample: true)!)
-    }
-
-    func testStandardDeviation() {
-        XCTAssertNil(emptyIntegers.standardDeviation())
-        XCTAssertEqual(2.87228132326901, integers.standardDeviation())
-        XCTAssertEqual(3.02765035409749, integers.standardDeviation(isSample: true))
-
-        XCTAssertNil(emptyDoubles.standardDeviation(isSample: true))
-        XCTAssertEqual(2.87228132326901, doubles.standardDeviation())
-        XCTAssertEqual(3.02765035409749, doubles.standardDeviation(isSample: true))
+        XCTAssertEqual(expectedVariance, doubles.variance(isSample: true))
     }
 }

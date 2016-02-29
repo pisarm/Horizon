@@ -55,7 +55,7 @@ extension CollectionType where Generator.Element: Addable, Generator.Element: Do
             guard !isEmpty else { return nil }
         }
 
-        let averageValue = average!
+        let averageValue = average! //See guard in average property for implicit unwrapping
 
         let numerator = reduce(Generator.Element.Zero.doubleValue, combine: { return $0.0.doubleValue + pow(averageValue - $0.1.doubleValue, 2) })
 
