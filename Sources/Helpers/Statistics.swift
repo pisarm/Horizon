@@ -55,15 +55,15 @@ extension CollectionType where Generator.Element: Addable, Generator.Element: Do
             guard !isEmpty else { return nil }
         }
 
-        guard let averageValue = average else { return nil }
+        let averageValue = average!
 
         let numerator = reduce(Generator.Element.Zero.doubleValue, combine: { return $0.0.doubleValue + pow(averageValue - $0.1.doubleValue, 2) })
 
         if isSample {
             return numerator / (count.doubleValue - 1.doubleValue)
-        } else {
-            return numerator / count.doubleValue
         }
+
+        return numerator / count.doubleValue
     }
 
     func standardDeviation(isSample isSample: Bool = false) -> Double? {

@@ -47,6 +47,7 @@
 		E478CC3F1C81CD5900E38223 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478CC3D1C81CD5900E38223 /* Statistics.swift */; };
 		E478CC401C81CD5900E38223 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478CC3D1C81CD5900E38223 /* Statistics.swift */; };
 		E478CC411C81CD5900E38223 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E478CC3D1C81CD5900E38223 /* Statistics.swift */; };
+		E4F1E0E11C83BCF700A962E0 /* StatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1E0E01C83BCF700A962E0 /* StatisticsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E439BE8F1C73DF38006EED45 /* Horizon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horizon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E439BE911C73DF88006EED45 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E478CC3D1C81CD5900E38223 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		E4F1E0E01C83BCF700A962E0 /* StatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				E439BE3A1C73DC87006EED45 /* Mock */,
 				E439BE441C73DD5D006EED45 /* PurgingArrayTests.swift */,
 				E4364BA21C77D405001DB331 /* URLSessionProtocolTests.swift */,
+				E4F1E0E01C83BCF700A962E0 /* StatisticsTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				E4364BA31C77D405001DB331 /* URLSessionProtocolTests.swift in Sources */,
 				E439BE971C73E3A0006EED45 /* MockURLSession.swift in Sources */,
 				E439BE981C73E3A0006EED45 /* MockURLSessionDataTask.swift in Sources */,
+				E4F1E0E11C83BCF700A962E0 /* StatisticsTests.swift in Sources */,
 				E439BE961C73E395006EED45 /* PurgingArrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
