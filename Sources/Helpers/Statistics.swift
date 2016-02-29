@@ -8,39 +8,39 @@
 
 import Foundation
 
-protocol Addable {
+public protocol Addable {
     static var Zero: Self { get }
 
     func + (lhs: Self, rhs: Self) -> Self
 }
 
 extension Int: Addable {
-    static var Zero: Int { return 0 }
+    public static var Zero: Int { return 0 }
 }
 
 extension Double: Addable {
-    static var Zero: Double { return 0.0 }
+    public static var Zero: Double { return 0.0 }
 }
 
-protocol DoubleConvertible {
+public protocol DoubleConvertible {
     var doubleValue: Double { get }
 }
 
 extension Int: DoubleConvertible {
-    var doubleValue: Double { return Double(self) }
+    public var doubleValue: Double { return Double(self) }
 }
 
 extension Double: DoubleConvertible {
-    var doubleValue: Double { return self }
+    public var doubleValue: Double { return self }
 }
 
-extension SequenceType where Generator.Element: Addable {
+public extension SequenceType where Generator.Element: Addable {
     var sum: Generator.Element {
         return reduce(Generator.Element.Zero, combine: +)
     }
 }
 
-extension CollectionType where Generator.Element: Addable, Generator.Element: DoubleConvertible, Index.Distance: DoubleConvertible {
+public extension CollectionType where Generator.Element: Addable, Generator.Element: DoubleConvertible, Index.Distance: DoubleConvertible {
     var average: Double? {
         guard !isEmpty else {
             return nil
