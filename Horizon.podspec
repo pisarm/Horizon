@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "Horizon"
-  s.version = "0.0.1"
+  s.version = "1.0.1"
   s.summary = "Horizon lets you find out if a host truly is reachable"
   s.homepage = "https://github.com/pisarm/Horizon"
   s.license = { :type => "MIT", :file => "LICENSE" }
