@@ -41,6 +41,10 @@ public final class Endpoint {
         self.onUpdate = onUpdate
     }
 
+    /**
+     request: Generates an URL request preconfigured with cache policy, timeout and authentication if given
+     - Returns: NSURLRequest
+     */
     func request() -> NSURLRequest {
         let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
         if let authorization = self.authorization, headerValue = authorization.headerValue() {

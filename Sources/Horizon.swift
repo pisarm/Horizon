@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ Reachability: Can be any one of three states:
+ - **Full**: All endpoints being monitored are responding
+ - **Partial**: At least one endpoint being monitored is responding
+ - **None**: None of the endpoints being monitored is responding
+ */
 public enum Reachability {
     case Full
     case Partial
