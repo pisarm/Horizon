@@ -1,3 +1,5 @@
+[![Build Status](https://www.bitrise.io/app/cf986b7ccf2372bc.svg?token=yxSjM7cJW-od880dyazf-g&branch=master)](https://www.bitrise.io/app/cf986b7ccf2372bc)
+
 #Horizon
 
 Horizon is a µFramework written in Swift. It replaces the use of the Reachability part of Apple's System Configuration framework.
