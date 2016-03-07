@@ -26,11 +26,6 @@ public final class Endpoint {
     //MARK: Initialization
     public init?(urlString: String, interval: NSTimeInterval = 10, timeout: NSTimeInterval = 3, authorization: Authorization? = nil, onUpdate: OnUpdate? = nil) {
         guard let url = NSURL(string: urlString) else {
-            //TODO: Remove fake init when Swift 2.2 arrives - bug in 2.1
-            self.onUpdate = nil
-            self.interval = 0
-            self.timeout = 0
-            self.url = NSURL()
             return nil
         }
 

@@ -31,7 +31,7 @@ public struct PurgingArray<T>: CollectionType, GeneratorType {
     }
 
     public func generate() -> Generator {
-        return anyGenerator(self)
+        return AnyGenerator(self)
     }
 
     public mutating func next() -> Element? {
