@@ -10,17 +10,25 @@ import Foundation
 
 /**
  Authorization:
- - **Basic**:
- - **Token**:
+ - **Basic**: Used for basic authentication
+ - **Token**: Used for token based authentication (OAuth, JWT, etc)
  */
 public enum Authorization {
     case Basic(username: String, password: String)
     case Token(token: String)
 
+    /**
+     headerKey: Generates the key for the HTTP authorization header.
+     - returns: String containing the word "*Authorization*"
+     */
     func headerKey() -> String {
         return "Authorization"
     }
 
+    /**
+     headerValue: Generates an HTTP Authorization header value
+     - returns: The correctly initialized value used for authorization or nil if it fails
+     */
     func headerValue() -> String? {
         switch self {
         case let .Basic(username, password):

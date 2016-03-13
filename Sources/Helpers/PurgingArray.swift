@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ PurgingArray: CollectionType that has the same overall characteristics as an Array. PurgingArray 
+ requires you to specify a *purgeCount* property, which is the point at which the array will start 
+ purging elements FIFO-style.
+ */
 public struct PurgingArray<T>: CollectionType, GeneratorType {
     public typealias Generator = AnyGenerator<T>
     public typealias Index = Array<T>.Index
