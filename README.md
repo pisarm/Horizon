@@ -1,4 +1,8 @@
-[![Build Status](https://www.bitrise.io/app/cf986b7ccf2372bc.svg?token=yxSjM7cJW-od880dyazf-g&branch=master)](https://www.bitrise.io/app/cf986b7ccf2372bc)
+<p align="center">
+  <a href="https://www.bitrise.io/app/cf986b7ccf2372bc"><img alt="Travis Status" src="https://www.bitrise.io/app/cf986b7ccf2372bc.svg?token=yxSjM7cJW-od880dyazf-g&branch=master"/></a>
+  <a href="https://img.shields.io/cocoapods/v/Horizon.svg"><img alt="CocoaPods compatible" src="https://img.shields.io/cocoapods/v/Horizon.svg"/></a>
+  <a href="https://github.com/Carthage/Carthage"><img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
+</p>
 
 #Horizon
 
@@ -10,21 +14,36 @@
 
 ## Usage
 
+Every endpoint can be configured with a custom timeout and interval between checking for reachability.
+
 ## Example
 
 ```swift
 
 let horizon = Horizon()
+
+//Called when overall reachability changes
 horizon.onReachabilityChange = { reachability, _ in
-    print("Reachability: \(reachability)") // Full, Partial or None
+    print("Reachability: \(reachability)") // prints Full, Partial or None
 }
 
-if let endpoint = Endpoint(urlString: "http://www.example.com") {
-    endpoint.onUpdate = { endpoint, reachabilityDidChange in
-        print("Endpoint: \(endpoint.url.absoluteString) Reachable:\(endpoint.isReachable ? "YES" : "NO")")
-    }
+//Called every time a given endpoint has been checked
+let endpointOnUpdate: (endpoint: Endpoint, didChangeReachable: Bool) -> () = { endpoint, reachabilityDidChange in
+    let reachable = endpoint.isReachable ? "YES" : "NO"
+    let formattedResponseTime = String(format: "%.2f", endpoint.responseTimes.last! * 1000)
+    let formattedStandardDeviation = String(format: "%.2f", (endpoint.responseTimes.standardDeviation(isSample: true) ?? 0) * 1000)
 
-    horizon.add(endpoint)
+    print("Endpoint: \(endpoint.url.absoluteString) reachable:\(reachable) response time: \(formattedResponseTime)ms standard deviation: \(formattedStandardDeviation)ms")
+}
+
+//Endpoint with default interval and timeout
+if let endpointExample = Endpoint(urlString: "http://www.example.com", onUpdate: endpointOnUpdate) {
+    horizon.add(endpointExample)
+}
+
+//Endpoint with custom interval and timeout
+if let endpointGithub = Endpoint(urlString: "https://github.com", interval: 1, timeout: 3, onUpdate: endpointOnUpdate) {
+    horizon.add(endpointGithub)
 }
 
 horizon.startMonitoring()
