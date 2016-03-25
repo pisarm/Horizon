@@ -15,10 +15,19 @@
 ```swift
 
 let horizon = Horizon()
-
-horizon.onReachabilityChange = { reachability, endpoint in
-    print(reachability) // prints Full, Partial or None
+horizon.onReachabilityChange = { reachability, _ in
+    print("Reachability: \(reachability)") // Full, Partial or None
 }
+
+if let endpoint = Endpoint(urlString: "http://www.example.com") {
+    endpoint.onUpdate = { endpoint, reachabilityDidChange in
+        print("Endpoint: \(endpoint.url.absoluteString) Reachable:\(endpoint.isReachable ? "YES" : "NO")")
+    }
+
+    horizon.add(endpoint)
+}
+
+horizon.startMonitoring()
 
 ```
 
