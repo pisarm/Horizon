@@ -8,12 +8,6 @@
 
 import Foundation
 
-public enum Reachability {
-    case Full
-    case Partial
-    case None
-}
-
 public final class Horizon {
     //MARK: Properties
     public var endpoints: [Endpoint] { return Array(endpointTaskMap.keys) }
