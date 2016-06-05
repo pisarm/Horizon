@@ -6,7 +6,7 @@
 //  Copyright © 2016 pisarm.dk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 FOUNDATION_EXPORT double HorizonVersionNumber;
 FOUNDATION_EXPORT const unsigned char HorizonVersionString[];
