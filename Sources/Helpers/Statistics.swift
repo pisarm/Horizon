@@ -34,21 +34,22 @@ extension Double: DoubleConvertible {
     public var doubleValue: Double { return self }
 }
 
-public extension SequenceType where Generator.Element: Addable {
-    var sum: Generator.Element {
-        return reduce(Generator.Element.Zero, combine: +)
+public extension Sequence where Iterator.Element: Addable {
+    var sum: Iterator.Element {
+        return reduce(Iterator.Element.Zero, combine: +)
     }
 }
 
-public extension CollectionType where Generator.Element: Addable, Generator.Element: DoubleConvertible, Index.Distance: DoubleConvertible {
+public extension Collection where Iterator.Element: Addable, Iterator.Element: DoubleConvertible, IndexDistance: DoubleConvertible {
     var average: Double? {
         guard !isEmpty else {
             return nil
         }
+
         return sum.doubleValue / count.doubleValue
     }
 
-    func variance(isSample isSample: Bool = false) -> Double? {
+    func variance(isSample: Bool = false) -> Double? {
         if isSample {
             guard count > 2 else { return nil }
         } else {
@@ -66,7 +67,7 @@ public extension CollectionType where Generator.Element: Addable, Generator.Elem
         return numerator / count.doubleValue
     }
 
-    func standardDeviation(isSample isSample: Bool = false) -> Double? {
+    func standardDeviation(isSample: Bool = false) -> Double? {
         guard let varianceValue = variance(isSample: isSample) else {
             return nil
         }

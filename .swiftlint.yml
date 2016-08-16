@@ -4,3 +4,8 @@ disabled_rules: # rule identifiers to exclude from running
 included: # paths to include during linting. `--path` is ignored if present. takes precendence over `excluded`.
   - Sources
   - Tests
+
+force_cast: warning
+force_try: warning
+variable_name: 
+  min_length: 1

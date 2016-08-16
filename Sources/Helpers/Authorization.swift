@@ -19,11 +19,11 @@ public enum Authorization {
     func headerValue() -> String? {
         switch self {
         case let .Basic(username, password):
-            guard let data = "\(username):\(password)".dataUsingEncoding(NSUTF8StringEncoding) else {
+            guard let data = "\(username):\(password)".data(using: NSUTF8StringEncoding) else {
                 return nil
             }
 
-            let encodedData = data.base64EncodedDataWithOptions([])
+            let encodedData = data.base64EncodedData([])
 
             return "Basic \(String(data: encodedData, encoding: NSUTF8StringEncoding)!)"
         case let .Token(token):

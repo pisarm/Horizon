@@ -24,7 +24,7 @@ final class MockURLSession: URLSessionProtocol {
     }
 
     func dataTaskWithRequest(request: NSURLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
-        lastURL = request.URL
+        lastURL = request.url
         completionHandler(nextData, nextResponse, nextError)
         return nextDataTask
     }
@@ -32,6 +32,6 @@ final class MockURLSession: URLSessionProtocol {
 
 extension NSHTTPURLResponse {
     convenience init?(statusCode: Int) {
-        self.init(URL: NSURL(), statusCode: statusCode, HTTPVersion: nil, headerFields: nil)
+        self.init(url: NSURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)
     }
 }

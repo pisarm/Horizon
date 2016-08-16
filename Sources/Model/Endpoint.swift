@@ -37,7 +37,7 @@ public final class Endpoint {
     }
 
     func request() -> NSURLRequest {
-        let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+        let request = NSMutableURLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
         if let authorization = self.authorization, headerValue = authorization.headerValue() {
             request.addValue(headerValue, forHTTPHeaderField: authorization.headerKey())
         }

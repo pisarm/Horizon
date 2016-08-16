@@ -8,14 +8,12 @@
 
 import Foundation
 
-public struct PurgingArray<T>: CollectionType, GeneratorType {
-    public typealias Generator = AnyGenerator<T>
-    public typealias Index = Array<T>.Index
+public struct PurgingArray<T>: Collection, IteratorProtocol {
+    public typealias Iterator = AnyIterator<T>
+
     public typealias Element = T
 
     public var purgeCount: Int
-    public var startIndex: Index { return values.startIndex }
-    public var endIndex: Index { return values.endIndex }
     private var values: [T] = []
     private var index = 0
 
@@ -30,8 +28,8 @@ public struct PurgingArray<T>: CollectionType, GeneratorType {
         values.append(value)
     }
 
-    public func generate() -> Generator {
-        return AnyGenerator(self)
+    public func makeIterator() -> Iterator {
+        return AnyIterator(self)
     }
 
     public mutating func next() -> Element? {
@@ -44,7 +42,31 @@ public struct PurgingArray<T>: CollectionType, GeneratorType {
         return obj
     }
 
-    public subscript(index: Index) -> Element {
-        return values[index]
+    //MARK: IndexableBase
+    public typealias Index = Array<T>.Index
+    public typealias SubSequence = Array<T>
+
+    public var startIndex: Index {
+        return values.startIndex
+    }
+
+    public var endIndex: Index {
+        return values.endIndex
+    }
+
+    public subscript(position: Index) -> Element {
+        return values[position]
+    }
+
+    public subscript(bounds: Range<Index>) -> SubSequence {
+        return Array(values[bounds])
+    }
+
+    public func index(after i: Index) -> Index {
+        return values.index(after: i)
+    }
+
+    public func formIndex(after i: inout Index) {
+        values.formIndex(after: &i)
     }
 }

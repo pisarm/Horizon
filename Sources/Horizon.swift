@@ -17,7 +17,7 @@ public final class Horizon {
     private let urlSession: URLSessionProtocol
 
     //MARK: Initialization
-    public init(urlSession: URLSessionProtocol = NSURLSession.sharedSession(), onReachabilityChange: ((reachability: Reachability, endpoint: Endpoint) -> ())? = nil) {
+    public init(urlSession: URLSessionProtocol = NSURLSession.shared(), onReachabilityChange: ((reachability: Reachability, endpoint: Endpoint) -> ())? = nil) {
         self.urlSession = urlSession
     }
 }
@@ -32,7 +32,7 @@ extension Horizon {
         endpointTaskMap[endpoint] = nil as URLSessionDataTaskProtocol?
 
         if isMonitoring {
-            checkEndpoint(endpoint)
+            check(endpoint: endpoint)
         }
     }
 
@@ -60,7 +60,7 @@ extension Horizon {
 
         isMonitoring = true
 
-        endpointTaskMap.forEach { self.checkEndpoint($0.0) }
+        endpointTaskMap.forEach { self.check(endpoint: $0.0) }
     }
 
     public func stopMonitoring() {
@@ -91,17 +91,17 @@ extension Horizon {
 
 extension Horizon {
     //MARK:
-    func checkEndpoint(endpoint: Endpoint) {
+    func check(endpoint: Endpoint) {
         let beginTime = NSDate.timeIntervalSinceReferenceDate()
 
-        let dataTask = urlSession.dataTaskWithRequest(endpoint.request()) { _, response, error in
+        let dataTask = urlSession.dataTaskWithRequest(request: endpoint.request()) { _, response, error in
             let oldReachableValue = endpoint.isReachable
             let newReachableValue = error == nil ? true : false
 
             if let httpURLResponse = response as? NSHTTPURLResponse {
                 endpoint.responseCode = httpURLResponse.statusCode
             }
-            endpoint.responseTimes.append(NSDate.timeIntervalSinceReferenceDate() - beginTime)
+            endpoint.responseTimes.append(value: NSDate.timeIntervalSinceReferenceDate() - beginTime)
             endpoint.isReachable = newReachableValue
             endpoint.onUpdate?(endpoint: endpoint, didChangeReachable: oldReachableValue != newReachableValue)
 
@@ -113,7 +113,7 @@ extension Horizon {
                 let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(endpoint.interval * NSTimeInterval(NSEC_PER_SEC)))
 
                 dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
-                    self?.checkEndpoint(endpoint)
+                    self?.check(endpoint: endpoint)
                 }
             }
         }

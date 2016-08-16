@@ -26,7 +26,7 @@ final class EndpointTests: XCTestCase {
 
         let request = endpoint.request()
 
-        XCTAssertEqual(urlString, request.URL!.absoluteString)
+        XCTAssertEqual(urlString, request.url!.absoluteString)
         XCTAssertEqual(timeout, request.timeoutInterval)
         XCTAssertNotNil(request.allHTTPHeaderFields!["Authorization"])
         XCTAssertEqual("Bearer \(token)", request.allHTTPHeaderFields!["Authorization"]!)
