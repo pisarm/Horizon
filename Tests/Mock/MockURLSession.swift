@@ -10,28 +10,22 @@ import Foundation
 @testable import Horizon
 
 final class MockURLSession: URLSessionProtocol {
-    var nextData: NSData?
+    var nextData: Data?
     var nextError: NSError?
-    var nextResponse: NSURLResponse?
+    var nextResponse: URLResponse?
 
     var nextDataTask = MockURLSessionDataTask()
-    private (set) var lastURL: NSURL?
+    private (set) var lastUrl: URL?
 
-    func dataTaskWithURL(url: NSURL, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
-        lastURL = url
-        completionHandler(nextData, nextResponse, nextError)
-        return nextDataTask
-    }
-
-    func dataTaskWithRequest(request: NSURLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
-        lastURL = request.url
+    func dataTask(request: URLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
+        lastUrl = request.url
         completionHandler(nextData, nextResponse, nextError)
         return nextDataTask
     }
 }
 
-extension NSHTTPURLResponse {
+extension HTTPURLResponse {
     convenience init?(statusCode: Int) {
-        self.init(url: NSURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)
+        self.init(url: URL(string: "http://pisarm.io")!, statusCode: statusCode, httpVersion: nil, headerFields: nil)
     }
 }

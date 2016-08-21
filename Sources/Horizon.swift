@@ -9,15 +9,18 @@
 import Foundation
 
 public final class Horizon {
+    //MARK: Typealiases
+    public typealias ReachabilityChangeHandler = (_ reachability: Reachability, _ endpoint: Endpoint) -> ()
+
     //MARK: Properties
     public var endpoints: [Endpoint] { return Array(endpointTaskMap.keys) }
-    public var onReachabilityChange: ((reachability: Reachability, endpoint: Endpoint) -> ())?
-    private(set) var isMonitoring: Bool = false
-    private var endpointTaskMap: [Endpoint : URLSessionDataTaskProtocol?] = [:]
-    private let urlSession: URLSessionProtocol
+    public var onReachabilityChange: ReachabilityChangeHandler?
+    fileprivate (set) var isMonitoring: Bool = false
+    fileprivate var endpointTaskMap: [Endpoint : URLSessionDataTaskProtocol?] = [:]
+    fileprivate let urlSession: URLSessionProtocol
 
     //MARK: Initialization
-    public init(urlSession: URLSessionProtocol = NSURLSession.shared(), onReachabilityChange: ((reachability: Reachability, endpoint: Endpoint) -> ())? = nil) {
+    public init(urlSession: URLSessionProtocol = URLSession.shared, onReachabilityChange: ReachabilityChangeHandler? = nil) {
         self.urlSession = urlSession
     }
 }
@@ -41,8 +44,8 @@ extension Horizon {
         endpointTaskMap[endpoint] = nil
     }
 
-    public func remove(endpointWithURL: NSURL) {
-        guard let (endpoint, task) = endpointTaskMap.filter({ $0.0.url == endpointWithURL }).first else {
+    public func remove(endpointWithUrl: URL) {
+        guard let (endpoint, task) = endpointTaskMap.filter({ $0.0.url == endpointWithUrl }).first else {
             return
         }
 
@@ -76,7 +79,7 @@ extension Horizon {
         let reachableEndPointCount = endpointTaskMap
             .keys
             .map { return $0.isReachable ? 1 : 0 }
-            .reduce(0, combine: +)
+            .reduce(0, +)
 
         switch reachableEndPointCount {
         case endpointTaskMap.count:
@@ -92,27 +95,25 @@ extension Horizon {
 extension Horizon {
     //MARK:
     func check(endpoint: Endpoint) {
-        let beginTime = NSDate.timeIntervalSinceReferenceDate()
+        let beginTime = Date.timeIntervalSinceReferenceDate
 
-        let dataTask = urlSession.dataTaskWithRequest(request: endpoint.request()) { _, response, error in
+        let dataTask = urlSession.dataTask(request: endpoint.request()) { _, response, error in
             let oldReachableValue = endpoint.isReachable
             let newReachableValue = error == nil ? true : false
 
-            if let httpURLResponse = response as? NSHTTPURLResponse {
+            if let httpURLResponse = response as? HTTPURLResponse {
                 endpoint.responseCode = httpURLResponse.statusCode
             }
-            endpoint.responseTimes.append(value: NSDate.timeIntervalSinceReferenceDate() - beginTime)
+            endpoint.responseTimes.append(Date.timeIntervalSinceReferenceDate - beginTime)
             endpoint.isReachable = newReachableValue
-            endpoint.onUpdate?(endpoint: endpoint, didChangeReachable: oldReachableValue != newReachableValue)
+            endpoint.onUpdate?(endpoint, oldReachableValue != newReachableValue)
 
             if oldReachableValue != newReachableValue {
-                self.onReachabilityChange?(reachability: self.reachability, endpoint: endpoint)
+                self.onReachabilityChange?(self.reachability, endpoint)
             }
 
             if self.isMonitoring {
-                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(endpoint.interval * NSTimeInterval(NSEC_PER_SEC)))
-
-                dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + endpoint.interval, qos: .background, flags: []) { [weak self] in
                     self?.check(endpoint: endpoint)
                 }
             }

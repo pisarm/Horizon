@@ -8,65 +8,34 @@
 
 import Foundation
 
-public struct PurgingArray<T>: Collection, IteratorProtocol {
-    public typealias Iterator = AnyIterator<T>
+// Greatly simplified; thank you Chris: http://chris.eidhof.nl/post/protocols-in-swift/
 
-    public typealias Element = T
-
+public struct PurgingArray<T> {
     public var purgeCount: Int
-    private var values: [T] = []
-    private var index = 0
+    fileprivate var elements: [T] = []
 
     init(purgeCount: Int) {
         self.purgeCount = purgeCount
     }
 
-    mutating func append(value: T) {
-        if values.count == purgeCount {
-            values.removeFirst()
+    mutating func append(_ element: T) {
+        if elements.count == purgeCount {
+            elements.removeFirst()
         }
-        values.append(value)
+        elements.append(element)
+    }
+}
+
+extension PurgingArray: Collection {
+    //MARK: Collection
+    public var startIndex: Int { return elements.startIndex }
+    public var endIndex: Int { return elements.endIndex }
+
+    public func index(after i: Int) -> Int {
+        return elements.index(after: i)
     }
 
-    public func makeIterator() -> Iterator {
-        return AnyIterator(self)
-    }
-
-    public mutating func next() -> Element? {
-        guard index != values.endIndex else {
-            return nil
-        }
-
-        let obj = values[index]
-        index += 1
-        return obj
-    }
-
-    //MARK: IndexableBase
-    public typealias Index = Array<T>.Index
-    public typealias SubSequence = Array<T>
-
-    public var startIndex: Index {
-        return values.startIndex
-    }
-
-    public var endIndex: Index {
-        return values.endIndex
-    }
-
-    public subscript(position: Index) -> Element {
-        return values[position]
-    }
-
-    public subscript(bounds: Range<Index>) -> SubSequence {
-        return Array(values[bounds])
-    }
-
-    public func index(after i: Index) -> Index {
-        return values.index(after: i)
-    }
-
-    public func formIndex(after i: inout Index) {
-        values.formIndex(after: &i)
+    public subscript(position: Int) -> T {
+        return elements[position]
     }
 }

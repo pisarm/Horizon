@@ -13,4 +13,4 @@ public protocol URLSessionDataTaskProtocol {
     func cancel()
 }
 
-extension NSURLSessionDataTask: URLSessionDataTaskProtocol { }
+extension URLSessionDataTask: URLSessionDataTaskProtocol { }

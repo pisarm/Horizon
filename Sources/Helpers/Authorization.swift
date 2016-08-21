@@ -12,22 +12,23 @@ public enum Authorization {
     case Basic(username: String, password: String)
     case Token(token: String)
 
-    func headerKey() -> String {
+    var key: String {
         return "Authorization"
     }
 
-    func headerValue() -> String? {
+    var value: String? {
         switch self {
         case let .Basic(username, password):
-            guard let data = "\(username):\(password)".data(using: NSUTF8StringEncoding) else {
+            guard let data = "\(username):\(password)".data(using: .utf8) else {
                 return nil
             }
 
-            let encodedData = data.base64EncodedData([])
+            let encodedData = data.base64EncodedData(options: [])
 
-            return "Basic \(String(data: encodedData, encoding: NSUTF8StringEncoding)!)"
+            return "Basic \(String(data: encodedData, encoding: .utf8)!)"
         case let .Token(token):
             return "Bearer \(token)"
         }
     }
+
 }

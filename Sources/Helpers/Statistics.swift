@@ -11,7 +11,7 @@ import Foundation
 public protocol Addable {
     static var Zero: Self { get }
 
-    func + (lhs: Self, rhs: Self) -> Self
+    static func + (lhs: Self, rhs: Self) -> Self
 }
 
 extension Int: Addable {
@@ -36,7 +36,7 @@ extension Double: DoubleConvertible {
 
 public extension Sequence where Iterator.Element: Addable {
     var sum: Iterator.Element {
-        return reduce(Iterator.Element.Zero, combine: +)
+        return reduce(Iterator.Element.Zero, +)
     }
 }
 
@@ -58,7 +58,7 @@ public extension Collection where Iterator.Element: Addable, Iterator.Element: D
 
         let averageValue = average! //See guard in average property for implicit unwrapping
 
-        let numerator = reduce(Generator.Element.Zero.doubleValue, combine: { return $0.0.doubleValue + pow(averageValue - $0.1.doubleValue, 2) })
+        let numerator = reduce(Generator.Element.Zero.doubleValue) { return $0.0.doubleValue + pow(averageValue - $0.1.doubleValue, 2) }
 
         if isSample {
             return numerator / (count.doubleValue - 1.doubleValue)

@@ -47,8 +47,8 @@ class HorizonTests: XCTestCase {
         let pisarmDotIo: Endpoint! = Endpoint(urlString: pisarmDotIoString)
 
         horizon.add(endpoint: pisarmDotIo)
-        horizon.remove(endpointWithURL: NSURL(string: pisarmDotIoString)!)
-        horizon.remove(endpointWithURL: NSURL(string: pisarmDotIoString)!) //Removed twice intentionally
+        horizon.remove(endpointWithUrl: URL(string: pisarmDotIoString)!)
+        horizon.remove(endpointWithUrl: URL(string: pisarmDotIoString)!) //Removed twice intentionally
 
         XCTAssertEqual(0, horizon.endpoints.count)
     }
@@ -58,7 +58,7 @@ class HorizonTests: XCTestCase {
         let pisarmDotIo: Endpoint! = Endpoint(urlString: pisarmDotIoString)
 
         horizon.add(endpoint: pisarmDotIo)
-        horizon.remove(endpointWithURL: NSURL(string: "pisarm.not.found.here")!)
+        horizon.remove(endpointWithUrl: URL(string: "pisarm.not.found.here")!)
 
         XCTAssertEqual(1, horizon.endpoints.count)
     }
@@ -76,9 +76,9 @@ class HorizonTests: XCTestCase {
 
     func testEndpointResponseCode() {
         let responseCode = 418
-        session.nextResponse = NSHTTPURLResponse(statusCode: responseCode)
+        session.nextResponse = HTTPURLResponse(statusCode: responseCode)
 
-        let e = expectation(withDescription: "Single endpoint should be reachable")
+        let e = expectation(description: "Single endpoint should be reachable")
 
         let urlString = "http://pisarm.io"
 
@@ -90,12 +90,12 @@ class HorizonTests: XCTestCase {
         horizon.add(endpoint: endpoint)
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testSingleEndpointReachable() {
 
-        let e = expectation(withDescription: "Single endpoint should be reachable")
+        let e = expectation(description: "Single endpoint should be reachable")
 
         let urlString = "http://pisarm.io"
 
@@ -107,13 +107,13 @@ class HorizonTests: XCTestCase {
         horizon.add(endpoint: endpoint)
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testSingleEndPointUnreachable() {
         session.nextError = NSError(domain: "dk.pisarm.mock", code: 7, userInfo: nil)
 
-        let e = expectation(withDescription: "Single endpoint should be unreachable")
+        let e = expectation(description: "Single endpoint should be unreachable")
 
         let urlString = "http://pisarm.io"
 
@@ -125,17 +125,17 @@ class HorizonTests: XCTestCase {
         horizon.add(endpoint: endpoint)
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testMultipleEndpointsReachable() {
-        let e = expectation(withDescription: "Multiple endpoints should be reachable")
+        let e = expectation(description: "Multiple endpoints should be reachable")
 
         let urlString = "http://pisarm.io"
         let urlString1 = "http://pisarm.info"
 
         var count = 0
-        let onUpdate: (endpoint: Endpoint, didChangeReachable: Bool) -> () = { _, _ in
+        let onUpdate: (_ endpoint: Endpoint, _ didChangeReachable: Bool) -> () = { _, _ in
             if count + 1 == 2 {
                 XCTAssertEqual(Reachability.Full, self.horizon.reachability)
                 e.fulfill()
@@ -151,19 +151,19 @@ class HorizonTests: XCTestCase {
         horizon.add(endpoint: endpoint1)
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testMultipleEndPointsPartiallyReachable() {
         session.nextError = NSError(domain: "dk.pisarm.mock", code: 7, userInfo: nil)
 
-        let e = expectation(withDescription: "Multiple endpoints should be unreachable")
+        let e = expectation(description: "Multiple endpoints should be unreachable")
 
         let urlString = "http://pisarm.io"
         let urlString1 = "http://pisarm.info"
 
         var count = 0
-        let onUpdate: (endpoint: Endpoint, didChangeReachable: Bool) -> () = { _, _ in
+        let onUpdate: (_ endpoint: Endpoint, _ didChangeReachable: Bool) -> () = { _, _ in
             if count == 0 {
                 self.session.nextError = nil
             } else if count + 1 == 2 {
@@ -181,19 +181,19 @@ class HorizonTests: XCTestCase {
         horizon.add(endpoint: endpoint1)
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testMultipleEndpointsUnreachable() {
         session.nextError = NSError(domain: "dk.pisarm.mock", code: 7, userInfo: nil)
 
-        let e = expectation(withDescription: "Multiple endpoints should be unreachable")
+        let e = expectation(description: "Multiple endpoints should be unreachable")
 
         let urlString = "http://pisarm.io"
         let urlString1 = "http://pisarm.info"
 
         var count = 0
-        let onUpdate: (endpoint: Endpoint, didChangeReachable: Bool) -> () = { _, _ in
+        let onUpdate: (_ endpoint: Endpoint, _ didChangeReachable: Bool) -> () = { _, _ in
             if count + 1 == 2 {
                 XCTAssertEqual(Reachability.None, self.horizon.reachability)
                 e.fulfill()
@@ -209,16 +209,16 @@ class HorizonTests: XCTestCase {
         horizon.add(endpoint: endpoint1)
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testMonitoring() {
-        let e = expectation(withDescription: "Monitoring with a given intervel should be possible")
+        let e = expectation(description: "Monitoring with a given intervel should be possible")
 
         let urlString = "http://pisarm.io"
 
         var countdown = 2
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, interval: 0.01) { _, _ in
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, interval: .milliseconds(100)) { _, _ in
             if countdown == 0 {
                 e.fulfill()
             }
@@ -229,14 +229,14 @@ class HorizonTests: XCTestCase {
         horizon.add(endpoint: endpoint)
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testReachabilityChange() {
-        let e = expectation(withDescription: "Monitoring with a given intervel should be possible")
+        let e = expectation(description: "Monitoring with a given intervel should be possible")
 
         let urlString = "http://pisarm.io"
-        let endpoint: Endpoint! = Endpoint(urlString: urlString, interval: 0.1)
+        let endpoint: Endpoint! = Endpoint(urlString: urlString, interval: .milliseconds(100))
 
         horizon.add(endpoint: endpoint)
         var countdown = 2
@@ -255,6 +255,6 @@ class HorizonTests: XCTestCase {
         }
         horizon.startMonitoring()
 
-        waitForExpectations(withTimeout: 1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
 }

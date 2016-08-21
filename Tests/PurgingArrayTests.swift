@@ -30,7 +30,7 @@ final class PurgingArrayTests: XCTestCase {
     //MARK: Tests
     func testAdd() {
         for i in 0...9 {
-            purgingArray.append(value: i)
+            purgingArray.append(i)
         }
 
         for i in 0...9 {
@@ -40,27 +40,27 @@ final class PurgingArrayTests: XCTestCase {
 
     func testStartIndex() {
         for i in 0...9 {
-            purgingArray.append(value: i)
+            purgingArray.append(i)
         }
 
-        XCTAssertEqual(5, purgingArray[purgingArray.startIndex.advancedBy(5)])
+        XCTAssertEqual(5, purgingArray[purgingArray.startIndex.advanced(by: 5)])
     }
 
     func testEndIndex() {
         for i in 0...9 {
-            purgingArray.append(value: i)
+            purgingArray.append(i)
         }
 
-        XCTAssertEqual(5, purgingArray[purgingArray.endIndex.advancedBy(-5)])
+        XCTAssertEqual(5, purgingArray[purgingArray.endIndex.advanced(by: -5)])
     }
 
     func testPurge() {
         for i in 0...14 {
-            purgingArray.append(value: i)
+            purgingArray.append(i)
         }
 
         for i in purgingArray {
             XCTAssertEqual(i, purgingArray[i-5])
         }
-    }
+    }    
 }

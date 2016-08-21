@@ -13,12 +13,12 @@ import XCTest
 final class URLSessionProtocolTests: XCTestCase {
     //MARK: Tests
     func testMockDataTaskWithRequest() {
-        let dataTask = MockURLSession().dataTaskWithRequest(request: NSURLRequest(), completionHandler: { _, _, _ in })
+        let dataTask = MockURLSession().dataTask(request: URLRequest(url: URL(string: "http://pisarm.io")!), completionHandler: { _, _, _ in })
         XCTAssertTrue(dataTask is MockURLSessionDataTask)
     }
 
     func testDataTaskWithRequest() {
-        let dataTask = (NSURLSession.shared() as URLSessionProtocol).dataTaskWithRequest(request: NSURLRequest(), completionHandler: { _, _, _ in })
-        XCTAssertTrue(dataTask is NSURLSessionDataTask)
+        let dataTask = (URLSession.shared as URLSessionProtocol).dataTask(request: URLRequest(url: URL(string: "http://pisarm.io")!), completionHandler: { _, _, _ in })
+        XCTAssertTrue(dataTask is URLSessionDataTask)
     }
 }

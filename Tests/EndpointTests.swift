@@ -18,7 +18,7 @@ final class EndpointTests: XCTestCase {
 
     func testRequest() {
         let urlString = "http://pisarm.io"
-        let timeout: NSTimeInterval = 5
+        let timeout: TimeInterval = 5
         let token = "1234"
         let authorization: Authorization = .Token(token: token)
 

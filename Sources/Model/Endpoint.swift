@@ -10,22 +10,22 @@ import Foundation
 
 public final class Endpoint {
     //MARK: Typealias
-    public typealias OnUpdate = (endpoint: Endpoint, didChangeReachable: Bool) -> ()
+    public typealias OnUpdate = (_ endpoint: Endpoint, _ didChangeReachable: Bool) -> ()
 
     //MARK: Properties
-    public var interval: NSTimeInterval
-    public var timeout: NSTimeInterval
-    public var onUpdate: ((endpoint: Endpoint, didChangeReachable: Bool) -> ())?
+    public var interval: DispatchTimeInterval
+    public var timeout: TimeInterval
+    public var onUpdate: OnUpdate?
 
-    public private (set) var url: NSURL
+    public private (set) var url: URL
     public internal (set) var responseCode: Int?
     public internal (set) var isReachable: Bool = false
-    public internal (set) var responseTimes: PurgingArray<NSTimeInterval> = PurgingArray(purgeCount: 100)
+    public internal (set) var responseTimes: PurgingArray<TimeInterval> = PurgingArray(purgeCount: 100)
     private var authorization: Authorization?
 
     //MARK: Initialization
-    public init?(urlString: String, interval: NSTimeInterval = 10, timeout: NSTimeInterval = 3, authorization: Authorization? = nil, onUpdate: OnUpdate? = nil) {
-        guard let url = NSURL(string: urlString) else {
+    public init?(urlString: String, interval: DispatchTimeInterval = .seconds(10), timeout: TimeInterval = 3, authorization: Authorization? = nil, onUpdate: OnUpdate? = nil) {
+        guard let url = URL(string: urlString) else {
             return nil
         }
 
@@ -36,10 +36,10 @@ public final class Endpoint {
         self.onUpdate = onUpdate
     }
 
-    func request() -> NSURLRequest {
-        let request = NSMutableURLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
-        if let authorization = self.authorization, headerValue = authorization.headerValue() {
-            request.addValue(headerValue, forHTTPHeaderField: authorization.headerKey())
+    func request() -> URLRequest {
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+        if let authorization = self.authorization, let headerValue = authorization.value {
+            request.addValue(headerValue, forHTTPHeaderField: authorization.key)
         }
 
         return request
@@ -53,14 +53,15 @@ extension Endpoint: Hashable {
     }
 }
 
-extension Endpoint: Comparable { }
-//MARK: Comparable
-public func == (lhs: Endpoint, rhs: Endpoint) -> Bool {
-    return lhs.url == rhs.url
-}
+extension Endpoint: Comparable {
+    //MARK: Comparable
+    public static func == (lhs: Endpoint, rhs: Endpoint) -> Bool {
+        return lhs.url == rhs.url
+    }
 
-public func < (lhs: Endpoint, rhs: Endpoint) -> Bool {
-    return lhs.url.absoluteString < rhs.url.absoluteString
+    public static func < (lhs: Endpoint, rhs: Endpoint) -> Bool {
+        return lhs.url.absoluteString < rhs.url.absoluteString
+    }
 }
 
 extension Endpoint: CustomDebugStringConvertible {
